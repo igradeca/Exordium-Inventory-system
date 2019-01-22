@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class EquipmentScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject equipmentPanel;
+    public GameObject equipmentButton;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +16,19 @@ public class NewBehaviourScript : MonoBehaviour {
 	void Update () {
 		
 	}
+
+
+    public void ShowPanel() {
+
+        if (equipmentPanel.activeSelf == true) {
+            equipmentPanel.SetActive(false);
+            equipmentButton.SetActive(true);
+
+        } else {
+            equipmentPanel.SetActive(true);
+            equipmentButton.SetActive(false);
+        }
+    }
+
+
 }

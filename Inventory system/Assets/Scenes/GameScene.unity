@@ -929,7 +929,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 853570901}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434422564}
+        m_MethodName: ShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &853570901
@@ -1117,7 +1128,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1000087539}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434422565}
+        m_MethodName: ShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1000087539
@@ -1195,7 +1217,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1635531715693622, guid: 03e0ce0faeb73e241aa26a86ed8154a5, type: 2}
       propertyPath: m_Name
-      value: Stone_3
+      value: Stone_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03e0ce0faeb73e241aa26a86ed8154a5, type: 2}
@@ -1216,7 +1238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1092501310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1421,7 +1443,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1221223149}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434422565}
+        m_MethodName: ShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1221223149
@@ -1540,6 +1573,8 @@ GameObject:
   - component: {fileID: 1434422560}
   - component: {fileID: 1434422561}
   - component: {fileID: 1434422562}
+  - component: {fileID: 1434422564}
+  - component: {fileID: 1434422565}
   - component: {fileID: 1434422563}
   m_Layer: 8
   m_Name: Hero
@@ -1561,7 +1596,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 1.5
   animator: {fileID: 1434422560}
-  rigidBody: {fileID: 0}
+  rigidBody: {fileID: 1434422561}
+  attributesScript: {fileID: 1434422564}
+  equipmentScript: {fileID: 1434422565}
+  inventoryScript: {fileID: 1434422563}
 --- !u!212 &1434422558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1698,6 +1736,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPanel: {fileID: 1820714437}
   inventoryButton: {fileID: 616958749}
+--- !u!114 &1434422564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434422556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d8214753f0b128479bd1beda78dec05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attributesPanel: {fileID: 1892401117}
+  attributesButton: {fileID: 853570898}
+--- !u!114 &1434422565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1434422556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf0dbc1aed4d2a41a50294fa8620f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equipmentPanel: {fileID: 1092501309}
+  equipmentButton: {fileID: 1000087536}
 --- !u!1 &1726458268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,7 +2107,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1890784230}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1434422564}
+        m_MethodName: ShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1890784230
@@ -2096,7 +2171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1892401118
 RectTransform:
   m_ObjectHideFlags: 0
