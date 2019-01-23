@@ -5,7 +5,6 @@ using UnityEngine;
 public static class AttrAndCharUtils {
 
     public enum ItemType {
-
         // Other types
         Permanent,
         Consumable,
@@ -21,7 +20,6 @@ public static class AttrAndCharUtils {
     }
 
     public enum AttributeType {
-
         Strength,
         Dexterity,
         Agility,

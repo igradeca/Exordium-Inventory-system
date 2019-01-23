@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class EquipmentScript : MonoBehaviour {
 
+    public static EquipmentScript instance;
+
     public GameObject equipmentPanel;
     public GameObject equipmentButton;
+
+    void Awake() {
+
+        if (instance != null) {
+            Debug.LogWarning("This instance already exist!");
+            return;
+        } else {
+            instance = this;
+        }
+    }
 
     // Use this for initialization
     void Start () {
