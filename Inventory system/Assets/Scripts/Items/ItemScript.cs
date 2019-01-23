@@ -17,9 +17,9 @@ public class ItemScript : InteractableScript {
 	}
 
     public override void Interact() {
-        base.Interact();
-
         PickUp();
+
+        base.Interact();
     }
     /*
     private void OnDrawGizmosSelected() {
@@ -32,7 +32,7 @@ public class ItemScript : InteractableScript {
 
         Debug.Log("Item " + itemData.name + " has been picked up.");
 
-        InventoryScript.instance.AddItem(itemData);
+        InventoryScript.instance.AddItem(itemData);        
         Destroy(gameObject);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractableScript : MonoBehaviour {
 
-    public Transform player;
+    
     public bool playerInProximity;
 
 	// Use this for initialization
@@ -21,6 +21,7 @@ public class InteractableScript : MonoBehaviour {
 
     public virtual void Interact() {
 
+        InventoryScript.instance.UpdateInventoryGrid();
     }
 
     void OnTriggerEnter2D(Collider2D collision) {

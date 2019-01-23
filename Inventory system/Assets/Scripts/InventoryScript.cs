@@ -8,7 +8,9 @@ public class InventoryScript : MonoBehaviour {
     public static InventoryScript instance;
 
     public GameObject inventoryPanel;
+    public GameObject inventoryContentList;
     public GameObject inventoryButton;
+    public GameObject inventoryItemCell;
 
     public List<PickupAbleItemScript> inventoryList;
 
@@ -26,7 +28,8 @@ public class InventoryScript : MonoBehaviour {
     void Start () {
 
         inventoryList = new List<PickupAbleItemScript>();
-	}
+        Object cell = Instantiate(inventoryItemCell, inventoryContentList.transform, true);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -58,7 +61,7 @@ public class InventoryScript : MonoBehaviour {
 
         // If there is no such stacked item or there is some of them left, add a new one.
         inventoryList.Add(item);
-    }
+    }    
 
     public void RemoveItem(PickupAbleItemScript item) {
 
@@ -67,6 +70,30 @@ public class InventoryScript : MonoBehaviour {
         } else {
             inventoryList.Remove(item);
         }
+    }
+
+    public void UpdateInventoryGrid() {
+
+        if (inventoryList.Count != inventoryContentList.transform.childCount) {
+            Debug.Log("b1");
+            foreach (Transform child in inventoryContentList.transform) {
+                Destroy(child.gameObject);
+            }
+
+            for (int i = 0; i < inventoryList.Count; i++) {
+                Object cell = Instantiate(inventoryItemCell, inventoryContentList.transform, true);
+            }
+            //Instantiate(inventoryItemCell, inventoryContentList.transform, true);
+
+        } else {
+            for (int i = 0; i < inventoryContentList.transform.childCount; i++) {
+
+                string stackStatus = (inventoryList[i].maxStack == 1) ? "" : inventoryList[i].currentStack + "/" + inventoryList[i].maxStack;
+                inventoryContentList.transform.GetChild(i).GetComponent<InventoryCellScript>().UpdateCell(stackStatus, inventoryList[i].itemImage);
+            }
+            
+        }
+
     }
 
     public void ShowPanel() {
