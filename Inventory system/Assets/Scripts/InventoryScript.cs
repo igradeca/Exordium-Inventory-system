@@ -35,7 +35,7 @@ public class InventoryScript : MonoBehaviour {
 
     public void Add(PickupAbleItemData itemData) {
 
-        if (itemData.maxStack >= 2 || itemData.maxStack == -1) {
+        if (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue) {
             _AddToExistingElement(itemData);
         }
         
@@ -49,9 +49,9 @@ public class InventoryScript : MonoBehaviour {
 
         for (int i = 0; i < inventoryList.Count; i++) {
             if (inventoryList[i].name == itemData.name && 
-                (inventoryList[i].currentStack < itemData.maxStack || itemData.maxStack == -1)) {
+                (inventoryList[i].currentStack < itemData.maxStack || itemData.maxStack == int.MaxValue)) {
 
-                if ((inventoryList[i].currentStack + itemData.currentStack) > itemData.maxStack && itemData.maxStack != -1) {
+                if ((inventoryList[i].currentStack + itemData.currentStack) > itemData.maxStack && itemData.maxStack != int.MaxValue) {
                     itemData.currentStack -= itemData.maxStack - inventoryList[i].currentStack;                                        
                 } else {
                     inventoryList[i].currentStack += itemData.currentStack;

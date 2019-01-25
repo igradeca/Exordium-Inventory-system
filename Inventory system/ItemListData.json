@@ -10,6 +10,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 100,
             "currentDurability": 100,
             "maxStack": 1,
@@ -25,6 +26,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
             "maxStack": 5,
@@ -40,6 +42,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
             "maxStack": 2,
@@ -55,9 +58,10 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
-            "maxStack": -1,
+            "maxStack": 2147483647,
             "currentStack": 100
         },
         {
@@ -70,6 +74,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 60,
             "currentDurability": 60,
             "maxStack": 1,
@@ -85,6 +90,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 140,
             "currentDurability": 140,
             "maxStack": 1,
@@ -100,6 +106,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 60,
             "currentDurability": 60,
             "maxStack": 10,
@@ -115,6 +122,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 60,
             "currentDurability": 60,
             "maxStack": 10,
@@ -130,6 +138,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 200,
             "currentDurability": 180,
             "maxStack": 1,
@@ -145,6 +154,7 @@
             "backgroundImage": {
                 "instanceID": 0
             },
+            "inventoryId": 0,
             "maxDurability": 150,
             "currentDurability": 150,
             "maxStack": 1,

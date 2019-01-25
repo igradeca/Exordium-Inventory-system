@@ -62,7 +62,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[3] = new PickupAbleItemData();
         items[3].maxDurability = 1;
         items[3].currentDurability = 1;
-        items[3].maxStack = -1;
+        items[3].maxStack = int.MaxValue;
         items[3].currentStack = 100;
         items[3].name = "Gold";
         items[3].itemType = AttrAndCharUtils.ItemType.Other;

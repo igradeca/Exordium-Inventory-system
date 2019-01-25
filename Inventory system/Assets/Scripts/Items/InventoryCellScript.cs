@@ -27,7 +27,7 @@ public class InventoryCellScript : MonoBehaviour {
         string stackText = "";
         if (itemData.maxStack > 1) {
             stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
-        } else if (itemData.maxStack == -1) {
+        } else if (itemData.maxStack == int.MaxValue) {
             stackText = itemData.currentStack.ToString();
         }
 
