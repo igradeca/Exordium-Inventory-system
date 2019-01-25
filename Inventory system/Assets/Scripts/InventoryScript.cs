@@ -7,11 +7,14 @@ public class InventoryScript : MonoBehaviour {
 
     public static InventoryScript instance;
 
+    public readonly int gridRowLength = 5;
     public GameObject inventoryPanel;
     public GameObject inventoryUIList;
     public GameObject inventoryButton;
 
     public GameObject inventoryItemCell;
+    private GameObject _cell;
+
 
     public List<PickupAbleItemData> inventoryList;
 
@@ -29,11 +32,16 @@ public class InventoryScript : MonoBehaviour {
     void Start () {
 
         inventoryList = new List<PickupAbleItemData>();
-        GameObject cell = Instantiate(inventoryItemCell, inventoryUIList.transform, true);
-        cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        //InstantiateEmptyCell();
+        /*
+        for (int i = 0; i < minInventoryGridCells; i++) {
+            InstantiateEmptyCell();
+        }
+        */
     }
 
-    public void AddItem(PickupAbleItemData itemData) {
+    public void Add(PickupAbleItemData itemData) {
 
         if (itemData.maxStack >= 2 || itemData.maxStack == -1) {
             _AddToExistingElement(itemData);
@@ -44,7 +52,7 @@ public class InventoryScript : MonoBehaviour {
             inventoryList.Add(itemData);
         }
     }
-
+    
     private void _AddToExistingElement(PickupAbleItemData itemData) {
 
         for (int i = 0; i < inventoryList.Count; i++) {
@@ -77,18 +85,39 @@ public class InventoryScript : MonoBehaviour {
             return;
         }
 
-        foreach (Transform child in inventoryUIList.transform) {
-            Destroy(child.gameObject);
+        if (inventoryUIList.transform.childCount == 0) {
+            InstantiateEmptyCells(5);
         }
 
-        GameObject cell;
-        foreach (PickupAbleItemData item in inventoryList) {
-            cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
-            cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-            cell.GetComponent<InventoryCellScript>().UpdateCell(item);
+        InventoryCellScript[] cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
+
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (cells.Length <= i) {
+                InstantiateEmptyCells(5);
+                cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
+            }
+            cells[i].UpdateCell(inventoryList[i]);
         }
-        cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
-        cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+
+        if (inventoryList.Count < cells.Length && inventoryList.Count > 0 && (inventoryList.Count % 5) == 0) {
+            DestroyEmptyCells(5);
+        }
+    }
+
+    private void InstantiateEmptyCells(int cellsNumber = 1) {
+
+        for (int i = 0; i < cellsNumber; i++) {
+            _cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
+            _cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+    }
+
+    private void DestroyEmptyCells(int cellsNumber) {
+
+        int cellsCount = inventoryUIList.transform.childCount;
+        for (int i = cellsCount; i >= cellsNumber; i--) {
+            Destroy(inventoryUIList.transform.GetChild(i));
+        }
     }
 
     public void ShowPanel() {

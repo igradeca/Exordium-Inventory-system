@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class PickupAbleItemData : ItemData {
 
+    public int inventoryId = 0;
+
 	public int maxDurability = 100;
     public int currentDurability = 100;
 
@@ -14,6 +16,8 @@ public class PickupAbleItemData : ItemData {
     public PickupAbleItemData() {}
 
     public PickupAbleItemData(PickupAbleItemData data) {
+
+        this.inventoryId = data.inventoryId;
 
         this.name = data.name;
         this.itemType = data.itemType;

@@ -18,6 +18,7 @@ public class ItemScript : InteractableScript {
 
     public void FillItemData(PickupAbleItemData serializedData) {
 
+        this.id = serializedData.inventoryId;
         itemData = new PickupAbleItemData(serializedData);
         spriteRenderer.sprite = itemData.itemImage;
     }
@@ -38,7 +39,7 @@ public class ItemScript : InteractableScript {
 
         //Debug.Log("Item " + itemSerializedData.name + " has been picked up.");
 
-        InventoryScript.instance.AddItem(itemData);        
+        InventoryScript.instance.Add(itemData);        
         Destroy(gameObject);
     }
 

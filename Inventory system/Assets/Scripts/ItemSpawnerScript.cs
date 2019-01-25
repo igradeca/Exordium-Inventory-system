@@ -8,6 +8,7 @@ public class ItemSpawnerScript : MonoBehaviour {
     public Texture2D itemTexture;
     public Sprite[] sprites;
 
+    private int _id;
     public int itemsToSpawn = 5;
     public PickupAbleItemData[] items;
     public GameObject itemPrefab;
@@ -19,6 +20,7 @@ public class ItemSpawnerScript : MonoBehaviour {
 
         sprites = Resources.LoadAll<Sprite>(itemTexture.name);
 
+        _id = 0;
         //CreateItems();
         LoadItems();
     }
@@ -147,8 +149,10 @@ public class ItemSpawnerScript : MonoBehaviour {
         for (int i = 0; i < itemsToSpawn; i++) {
             Vector2 position = Random.insideUnitCircle * 2;
             int rndIndex = Random.Range(0, items.Length);
+            _id++;
 
             GameObject newItem = Instantiate(itemPrefab);
+            items[rndIndex].inventoryId = _id;
             newItem.GetComponent<ItemScript>().FillItemData(items[rndIndex]);
 
             newItem.transform.position = position;

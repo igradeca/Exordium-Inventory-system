@@ -9,6 +9,7 @@ public class InventoryCellScript : MonoBehaviour {
     public Image cellImage;
 
     public PickupAbleItemData itemData;
+    public int itemIndex;
 
 	// Use this for initialization
 	void Awake () {
@@ -19,6 +20,7 @@ public class InventoryCellScript : MonoBehaviour {
 
     public void UpdateCell(PickupAbleItemData itemData) {
 
+        //this.itemIndex = itemIndex;
         this.itemData = itemData;
 
         string stackText = "";
