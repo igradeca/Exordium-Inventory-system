@@ -25,7 +25,7 @@ public class ItemSpawnerScript : MonoBehaviour {
 
     public void CreateItems() {
 
-        items = new PickupAbleItemData[3];
+        items = new PickupAbleItemData[10];
 
         items[0] = new PickupAbleItemData();
         items[0].maxDurability = 100;
@@ -57,6 +57,76 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[2].itemImageName = sprites[5].name;
         items[2].itemImage = sprites[5];
 
+        items[3] = new PickupAbleItemData();
+        items[3].maxDurability = 1;
+        items[3].currentDurability = 1;
+        items[3].maxStack = -1;
+        items[3].currentStack = 100;
+        items[3].name = "Gold";
+        items[3].itemType = AttrAndCharUtils.ItemType.Other;
+        items[3].itemImageName = sprites[17].name;
+        items[3].itemImage = sprites[17];
+
+        items[4] = new PickupAbleItemData();
+        items[4].maxDurability = 60;
+        items[4].currentDurability = 60;
+        items[4].maxStack = 1;
+        items[4].currentStack = 1;
+        items[4].name = "Black Leather Boots";
+        items[4].itemType = AttrAndCharUtils.ItemType.Boots;
+        items[4].itemImageName = sprites[43].name;
+        items[4].itemImage = sprites[43];
+
+        items[5] = new PickupAbleItemData();
+        items[5].maxDurability = 140;
+        items[5].currentDurability = 140;
+        items[5].maxStack = 1;
+        items[5].currentStack = 1;
+        items[5].name = "Fire Sword";
+        items[5].itemType = AttrAndCharUtils.ItemType.Weapon;
+        items[5].itemImageName = sprites[47].name;
+        items[5].itemImage = sprites[47];
+
+        items[6] = new PickupAbleItemData();
+        items[6].maxDurability = 60;
+        items[6].currentDurability = 60;
+        items[6].maxStack = 10;
+        items[6].currentStack = 1;
+        items[6].name = "Mana Potion";
+        items[6].itemType = AttrAndCharUtils.ItemType.Consumable;
+        items[6].itemImageName = sprites[26].name;
+        items[6].itemImage = sprites[26];
+
+        items[7] = new PickupAbleItemData();
+        items[7].maxDurability = 60;
+        items[7].currentDurability = 60;
+        items[7].maxStack = 10;
+        items[7].currentStack = 1;
+        items[7].name = "Health Potion";
+        items[7].itemType = AttrAndCharUtils.ItemType.Consumable;
+        items[7].itemImageName = sprites[4].name;
+        items[7].itemImage = sprites[4];
+
+        items[8] = new PickupAbleItemData();
+        items[8].maxDurability = 200;
+        items[8].currentDurability = 180;
+        items[8].maxStack = 1;
+        items[8].currentStack = 1;
+        items[8].name = "Catarina Armor";
+        items[8].itemType = AttrAndCharUtils.ItemType.Chest;
+        items[8].itemImageName = sprites[27].name;
+        items[8].itemImage = sprites[27];
+
+        items[9] = new PickupAbleItemData();
+        items[9].maxDurability = 150;
+        items[9].currentDurability = 150;
+        items[9].maxStack = 1;
+        items[9].currentStack = 1;
+        items[9].name = "Catarina Helm";
+        items[9].itemType = AttrAndCharUtils.ItemType.Head;
+        items[9].itemImageName = sprites[35].name;
+        items[9].itemImage = sprites[35];
+
         string json = JsonHelper.ToJson(items, true);
         File.WriteAllText(filePath, json);
         //Debug.Log(json);
@@ -74,11 +144,12 @@ public class ItemSpawnerScript : MonoBehaviour {
 
     public void SpawnItems() {
 
-        for (int i = 0; i < items.Length; i++) {
+        for (int i = 0; i < itemsToSpawn; i++) {
             Vector2 position = Random.insideUnitCircle * 2;
+            int rndIndex = Random.Range(0, items.Length);
 
             GameObject newItem = Instantiate(itemPrefab);
-            newItem.GetComponent<ItemScript>().FillItemData(items[i]);
+            newItem.GetComponent<ItemScript>().FillItemData(items[rndIndex]);
 
             newItem.transform.position = position;
         }

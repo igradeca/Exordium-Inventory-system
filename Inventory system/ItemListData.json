@@ -44,6 +44,111 @@
             "currentDurability": 1,
             "maxStack": 2,
             "currentStack": 1
+        },
+        {
+            "name": "Gold",
+            "itemType": 2,
+            "itemImageName": "ItemsSprite_17",
+            "itemImage": {
+                "instanceID": 11534
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 1,
+            "currentDurability": 1,
+            "maxStack": -1,
+            "currentStack": 100
+        },
+        {
+            "name": "Black Leather Boots",
+            "itemType": 6,
+            "itemImageName": "ItemsSprite_43",
+            "itemImage": {
+                "instanceID": 11586
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 60,
+            "currentDurability": 60,
+            "maxStack": 1,
+            "currentStack": 1
+        },
+        {
+            "name": "Fire Sword",
+            "itemType": 8,
+            "itemImageName": "ItemsSprite_47",
+            "itemImage": {
+                "instanceID": 11594
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 140,
+            "currentDurability": 140,
+            "maxStack": 1,
+            "currentStack": 1
+        },
+        {
+            "name": "Mana Potion",
+            "itemType": 1,
+            "itemImageName": "ItemsSprite_26",
+            "itemImage": {
+                "instanceID": 11552
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 60,
+            "currentDurability": 60,
+            "maxStack": 10,
+            "currentStack": 1
+        },
+        {
+            "name": "Health Potion",
+            "itemType": 1,
+            "itemImageName": "ItemsSprite_4",
+            "itemImage": {
+                "instanceID": 11508
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 60,
+            "currentDurability": 60,
+            "maxStack": 10,
+            "currentStack": 1
+        },
+        {
+            "name": "Catarina Armor",
+            "itemType": 4,
+            "itemImageName": "ItemsSprite_27",
+            "itemImage": {
+                "instanceID": 11554
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 200,
+            "currentDurability": 180,
+            "maxStack": 1,
+            "currentStack": 1
+        },
+        {
+            "name": "Catarina Helm",
+            "itemType": 3,
+            "itemImageName": "ItemsSprite_35",
+            "itemImage": {
+                "instanceID": 11570
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 150,
+            "currentDurability": 150,
+            "maxStack": 1,
+            "currentStack": 1
         }
     ]
 }

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractableScript : MonoBehaviour {
-
-    
+        
     public bool playerInProximity;
 
 	// Use this for initialization

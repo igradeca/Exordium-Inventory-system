@@ -20,10 +20,14 @@ public class InventoryCellScript : MonoBehaviour {
     public void UpdateCell(PickupAbleItemData itemData) {
 
         this.itemData = itemData;
-        
-        string stackText = (itemData.maxStack > 1) ? 
-            itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString() :
-            "";
+
+        string stackText = "";
+        if (itemData.maxStack > 1) {
+            stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
+        } else if (itemData.maxStack == -1) {
+            stackText = itemData.currentStack.ToString();
+        }
+
         stackStatus.text = stackText;
         cellImage.sprite = this.itemData.itemImage;
         cellImage.color = Color.white;
