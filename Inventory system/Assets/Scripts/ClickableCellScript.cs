@@ -25,11 +25,17 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
     public void OnPointerEnter(PointerEventData eventData) {
         Debug.Log("Mouse enter");
         _pointerIsOver = true;
+
+        if (cellItemData.itemData.inventoryId != 0) {
+            UIManager.instance.ShowTooltip(transform.position, cellItemData.itemData);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
         Debug.Log("Mouse exit");
         _pointerIsOver = false;
+
+        UIManager.instance.HideTooltip();
     }
 
 

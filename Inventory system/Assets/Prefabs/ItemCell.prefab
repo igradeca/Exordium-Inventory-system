@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0.3137255}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3137255}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackStatus: {fileID: 0}
-  cellImage: {fileID: 114011045024678936}
+  cellImage: {fileID: 0}
+  backGroundImage: {fileID: 114011045024678936}
   itemData:
     name: 
     itemType: 0
