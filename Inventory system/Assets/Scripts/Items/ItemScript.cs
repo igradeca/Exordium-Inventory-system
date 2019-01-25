@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemScript : InteractableScript {
 
-    public PickupAbleItemScript itemData;
+    //public PickupAbleItemSerializeObject itemSerializedData;
+    public PickupAbleItemData itemData;
 
     public int id;
     public SpriteRenderer spriteRenderer;
@@ -12,13 +13,18 @@ public class ItemScript : InteractableScript {
 	// Use this for initialization
 	void Start () {
 
-        spriteRenderer.sprite = itemData.itemImage;
-
+        
 	}
 
-    public override void Interact() {
-        PickUp();
+    public void FillItemData(PickupAbleItemData serializedData) {
 
+        itemData = new PickupAbleItemData(serializedData);
+        spriteRenderer.sprite = itemData.itemImage;
+    }
+
+    public override void Interact() {
+
+        PickUp();
         base.Interact();
     }
     /*
@@ -30,7 +36,7 @@ public class ItemScript : InteractableScript {
     */
     private void PickUp() {
 
-        Debug.Log("Item " + itemData.name + " has been picked up.");
+        //Debug.Log("Item " + itemSerializedData.name + " has been picked up.");
 
         InventoryScript.instance.AddItem(itemData);        
         Destroy(gameObject);

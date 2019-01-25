@@ -8,11 +8,12 @@ public class InventoryScript : MonoBehaviour {
     public static InventoryScript instance;
 
     public GameObject inventoryPanel;
-    public GameObject inventoryContentList;
+    public GameObject inventoryUIList;
     public GameObject inventoryButton;
+
     public GameObject inventoryItemCell;
 
-    public List<PickupAbleItemScript> inventoryList;
+    public List<PickupAbleItemData> inventoryList;
 
     void Awake() {
 
@@ -27,73 +28,66 @@ public class InventoryScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        inventoryList = new List<PickupAbleItemScript>();
-        Object cell = Instantiate(inventoryItemCell, inventoryContentList.transform, true);
+        inventoryList = new List<PickupAbleItemData>();
+        GameObject cell = Instantiate(inventoryItemCell, inventoryUIList.transform, true);
+        cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        		
-	}
+    public void AddItem(PickupAbleItemData itemData) {
 
-    public void AddItem(PickupAbleItemScript item) {
-
-        if (item.maxStack > 1) {
-            _AddToExistingElement(item);
-        } else {
-            inventoryList.Add(item);
+        if (itemData.maxStack > 1) {
+            _AddToExistingElement(itemData);
+        }
+        
+        if (itemData.currentStack > 0) {
+            // If there is no such stacked item or there is some of them left, add a new one.
+            inventoryList.Add(itemData);
         }
     }
 
-    private void _AddToExistingElement(PickupAbleItemScript item) {
+    private void _AddToExistingElement(PickupAbleItemData itemData) {
 
         for (int i = 0; i < inventoryList.Count; i++) {
-            if (inventoryList[i].name == item.name && inventoryList[i].currentStack < item.maxStack) {
-                if (inventoryList[i].currentStack + item.currentStack > item.maxStack) {
-                    item.currentStack -= item.maxStack - inventoryList[i].currentStack;                    
+            if (inventoryList[i].name == itemData.name && inventoryList[i].currentStack < itemData.maxStack) {
+
+                if ((inventoryList[i].currentStack + itemData.currentStack) > itemData.maxStack) {
+                    itemData.currentStack -= itemData.maxStack - inventoryList[i].currentStack;                                        
                 } else {
-                    inventoryList[i].currentStack += item.currentStack;
+                    inventoryList[i].currentStack += itemData.currentStack;
+                    itemData.currentStack = 0;
                     return;
                 }
             }
         }
+    }
 
-        // If there is no such stacked item or there is some of them left, add a new one.
-        inventoryList.Add(item);
-    }    
+    public void RemoveItem(PickupAbleItemData itemData) {
 
-    public void RemoveItem(PickupAbleItemScript item) {
-
-        if (item.maxStack > 1) {
+        if (itemData.maxStack > 1) {
             // stacking code goes here
         } else {
-            inventoryList.Remove(item);
+            inventoryList.Remove(itemData);
         }
     }
 
     public void UpdateInventoryGrid() {
 
-        if (inventoryList.Count != inventoryContentList.transform.childCount) {
-            Debug.Log("b1");
-            foreach (Transform child in inventoryContentList.transform) {
-                Destroy(child.gameObject);
-            }
-
-            for (int i = 0; i < inventoryList.Count; i++) {
-                Object cell = Instantiate(inventoryItemCell, inventoryContentList.transform, true);
-            }
-            //Instantiate(inventoryItemCell, inventoryContentList.transform, true);
-
-        } else {
-            for (int i = 0; i < inventoryContentList.transform.childCount; i++) {
-
-                string stackStatus = (inventoryList[i].maxStack == 1) ? "" : inventoryList[i].currentStack + "/" + inventoryList[i].maxStack;
-                inventoryContentList.transform.GetChild(i).GetComponent<InventoryCellScript>().UpdateCell(stackStatus, inventoryList[i].itemImage);
-            }
-            
+        if (inventoryPanel.activeSelf == false) {
+            return;
         }
 
+        foreach (Transform child in inventoryUIList.transform) {
+            Destroy(child.gameObject);
+        }
+
+        GameObject cell;
+        foreach (PickupAbleItemData item in inventoryList) {
+            cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
+            cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            cell.GetComponent<InventoryCellScript>().UpdateCell(item);
+        }
+        cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
+        cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
     }
 
     public void ShowPanel() {
@@ -105,6 +99,7 @@ public class InventoryScript : MonoBehaviour {
         } else {
             inventoryPanel.SetActive(true);
             inventoryButton.SetActive(false);
+            UpdateInventoryGrid();
         }
     }
 

@@ -1,0 +1,49 @@
+{
+    "Items": [
+        {
+            "name": "Wizard's Hat",
+            "itemType": 3,
+            "itemImageName": "ItemsSprite_19",
+            "itemImage": {
+                "instanceID": 11538
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 100,
+            "currentDurability": 100,
+            "maxStack": 1,
+            "currentStack": 1
+        },
+        {
+            "name": "Viper Eye",
+            "itemType": 2,
+            "itemImageName": "ItemsSprite_52",
+            "itemImage": {
+                "instanceID": 11604
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 1,
+            "currentDurability": 1,
+            "maxStack": 5,
+            "currentStack": 1
+        },
+        {
+            "name": "Beer",
+            "itemType": 2,
+            "itemImageName": "ItemsSprite_5",
+            "itemImage": {
+                "instanceID": 11510
+            },
+            "backgroundImage": {
+                "instanceID": 0
+            },
+            "maxDurability": 1,
+            "currentDurability": 1,
+            "maxStack": 2,
+            "currentStack": 1
+        }
+    ]
+}
