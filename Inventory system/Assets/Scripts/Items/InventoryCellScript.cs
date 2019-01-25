@@ -25,10 +25,10 @@ public class InventoryCellScript : MonoBehaviour {
         this.itemData = itemData;
 
         string stackText = "";
-        if (itemData.maxStack > 1) {
-            stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
-        } else if (itemData.maxStack == int.MaxValue) {
+        if (itemData.maxStack == int.MaxValue) {
             stackText = itemData.currentStack.ToString();
+        } else if (itemData.maxStack > 1) {
+            stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
         }
 
         stackStatus.text = stackText;
