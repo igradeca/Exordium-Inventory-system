@@ -39,7 +39,8 @@ public class CharacterControl : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.I)) {
-            inventoryScript.ShowPanel();
+            InventoryScript.instance.ShowPanel();
+            //inventoryScript.ShowPanel();
         }
     }
 

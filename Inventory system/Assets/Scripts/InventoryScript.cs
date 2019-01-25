@@ -14,14 +14,13 @@ public class InventoryScript : MonoBehaviour {
 
     public GameObject inventoryItemCell;
     private GameObject _cell;
-
-
+    
     public List<PickupAbleItemData> inventoryList;
 
     void Awake() {
 
         if (instance != null) {
-            Debug.LogWarning("This instance already exist!");
+            Debug.LogWarning("Inventory instance already exist!");
             return;
         } else {
             instance = this;
@@ -32,13 +31,6 @@ public class InventoryScript : MonoBehaviour {
     void Start () {
 
         inventoryList = new List<PickupAbleItemData>();
-
-        //InstantiateEmptyCell();
-        /*
-        for (int i = 0; i < minInventoryGridCells; i++) {
-            InstantiateEmptyCell();
-        }
-        */
     }
 
     public void Add(PickupAbleItemData itemData) {
