@@ -7,7 +7,7 @@ public class ItemScript : InteractableScript {
     //public PickupAbleItemSerializeObject itemSerializedData;
     public PickupAbleItemData itemData;
 
-    public int id;
+    public int itemId;
     public SpriteRenderer spriteRenderer;
 
 	// Use this for initialization
@@ -16,10 +16,10 @@ public class ItemScript : InteractableScript {
         
 	}
 
-    public void FillItemData(PickupAbleItemData serializedData) {
+    public void FillItemData(PickupAbleItemData serializedData, int newItemId) {
 
-        this.id = serializedData.inventoryId;
-        itemData = new PickupAbleItemData(serializedData);
+        itemId = newItemId;
+        itemData = new PickupAbleItemData(serializedData, itemId);
         spriteRenderer.sprite = itemData.itemImage;
     }
 

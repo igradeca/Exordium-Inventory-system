@@ -52,7 +52,8 @@ public class InventoryScript : MonoBehaviour {
                 (inventoryList[i].currentStack < itemData.maxStack || itemData.maxStack == int.MaxValue)) {
 
                 if ((inventoryList[i].currentStack + itemData.currentStack) > itemData.maxStack && itemData.maxStack != int.MaxValue) {
-                    itemData.currentStack -= itemData.maxStack - inventoryList[i].currentStack;                                        
+                    itemData.currentStack -= itemData.maxStack - inventoryList[i].currentStack;
+                    inventoryList[i].currentStack = itemData.maxStack;
                 } else {
                     inventoryList[i].currentStack += itemData.currentStack;
                     itemData.currentStack = 0;
@@ -62,12 +63,24 @@ public class InventoryScript : MonoBehaviour {
         }
     }
 
-    public void RemoveItem(PickupAbleItemData itemData) {
+    public void Remove(int inventoryId) {
 
+        RemoveItemByInventoryId(inventoryId);
+        /*
         if (itemData.maxStack > 1) {
             // stacking code goes here
         } else {
             inventoryList.Remove(itemData);
+        }
+        */
+    }
+
+    private void RemoveItemByInventoryId(int inventoryId) {
+
+        for (int i = 0; i < inventoryList.Count; i++) {
+            if (inventoryList[i].itemId == inventoryId) {
+                inventoryList.RemoveAt(i);
+            }
         }
     }
 
@@ -78,25 +91,31 @@ public class InventoryScript : MonoBehaviour {
         }
 
         if (inventoryUIList.transform.childCount == 0) {
-            InstantiateEmptyCells(5);
+            InstantiateNewEmptyCells(5);
         }
 
         InventoryCellScript[] cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
-
         for (int i = 0; i < inventoryList.Count; i++) {
-            if (cells.Length <= i) {
-                InstantiateEmptyCells(5);
+            if (cells.Length <= i + 1) {
+                InstantiateNewEmptyCells(5);
                 cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
             }
             cells[i].UpdateCell(inventoryList[i]);
         }
+        
+        if (cells.Length > inventoryList.Count) {
+            for (int i = inventoryList.Count; i < cells.Length; i++) {
+                cells[i].SetEmptyCell();
+            }
+        }
 
-        if (inventoryList.Count < cells.Length && inventoryList.Count > 0 && (inventoryList.Count % 5) == 0) {
+        if (inventoryList.Count + 5 < cells.Length && inventoryList.Count > 0) {
             DestroyEmptyCells(5);
         }
+
     }
 
-    private void InstantiateEmptyCells(int cellsNumber = 1) {
+    private void InstantiateNewEmptyCells(int cellsNumber = 1) {
 
         for (int i = 0; i < cellsNumber; i++) {
             _cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
@@ -107,8 +126,8 @@ public class InventoryScript : MonoBehaviour {
     private void DestroyEmptyCells(int cellsNumber) {
 
         int cellsCount = inventoryUIList.transform.childCount;
-        for (int i = cellsCount; i >= cellsNumber; i--) {
-            Destroy(inventoryUIList.transform.GetChild(i));
+        for (int i = (cellsCount - 1), j = cellsNumber; i >= 0 && j > 0; i--, j--) {
+            Destroy(inventoryUIList.transform.GetChild(i).gameObject);
         }
     }
 

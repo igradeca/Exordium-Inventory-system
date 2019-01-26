@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class PickupAbleItemData : ItemData {
 
-    public int inventoryId = 0;
+    public int itemId = 0;
 
 	public int maxDurability = 100;
     public int currentDurability = 100;
@@ -15,9 +15,9 @@ public class PickupAbleItemData : ItemData {
 
     public PickupAbleItemData() {}
 
-    public PickupAbleItemData(PickupAbleItemData data) {
+    public PickupAbleItemData(PickupAbleItemData data, int newItemId) {
 
-        this.inventoryId = data.inventoryId;
+        this.itemId = newItemId;
 
         this.name = data.name;
         this.itemType = data.itemType;

@@ -20,28 +20,6 @@ public class CharacterControl : MonoBehaviour {
 
     void Update() {
 
-        KeyboardInput();
-
-    }
-
-    private void KeyboardInput() {
-
-        if (gameObject.tag != "Player") {
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.C)) {
-            attributesScript.ShowPanel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E)) {
-            equipmentScript.ShowPanel();
-        }
-
-        if (Input.GetKeyDown(KeyCode.I)) {
-            InventoryScript.instance.ShowPanel();
-            //inventoryScript.ShowPanel();
-        }
     }
 
     // Update is called once per frame

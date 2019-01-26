@@ -5,22 +5,45 @@ using UnityEngine;
 
 public class ItemSpawnerScript : MonoBehaviour {
 
+    public static ItemSpawnerScript instance;
+
     public Texture2D itemTexture;
     public Sprite[] sprites;
 
-    private int _id;
+    private int _itemId;
+    public int newItemId {
+        get {
+            ++_itemId;
+            return _itemId;
+        } set 
+            {
+
+        }
+    }
+
     public int itemsToSpawn = 5;
     public PickupAbleItemData[] items;
     public GameObject itemPrefab;
 
     private readonly string filePath = "ItemListData.json";
 
+    void Awake() {
+
+        if (instance != null) {
+            Debug.LogWarning("ItemSpawnerScript instance already exist!");
+            return;
+        } else {
+            instance = this;
+        }
+
+        //itemId = 0;
+    }
+
     // Use this for initialization
     void Start () {
 
         sprites = Resources.LoadAll<Sprite>(itemTexture.name);
 
-        _id = 1;
         //CreateItems();
         LoadItems();
     }
@@ -150,13 +173,20 @@ public class ItemSpawnerScript : MonoBehaviour {
             Vector2 position = Random.insideUnitCircle * 2;
             int rndIndex = Random.Range(0, items.Length);
 
-            GameObject newItem = Instantiate(itemPrefab);
-            items[rndIndex].inventoryId = _id;
-            newItem.GetComponent<ItemScript>().FillItemData(items[rndIndex]);
-            newItem.transform.position = position;
-
-            _id++;
+            Spawn(position, items[rndIndex]);            
         }
+    }
+
+    public void Spawn(Vector2 position, PickupAbleItemData itemData) {
+
+        GameObject newItem = Instantiate(itemPrefab);
+        if (itemData.itemId == 0) {
+            newItem.GetComponent<ItemScript>().FillItemData(itemData, newItemId);
+        } else {
+            newItem.GetComponent<ItemScript>().FillItemData(itemData, itemData.itemId);
+        }
+        
+        newItem.transform.position = position;
     }
 
 

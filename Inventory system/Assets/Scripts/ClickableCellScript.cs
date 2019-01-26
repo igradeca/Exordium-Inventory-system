@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler { // 
+public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
 
     public InventoryCellScript cellItemData;
 
     private bool _pointerIsOver;
-    
+
     public void OnPointerClick(PointerEventData eventData) {
 
-        if (cellItemData.itemData.inventoryId != 0) {
+        if (cellItemData.itemData != null) {
             if (eventData.button == PointerEventData.InputButton.Left) {
                 UIManager.instance.ActivateCursorItemInTheAir();   
                 MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);
@@ -22,19 +22,23 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
                 //Debug.Log("Right click " + cellItemData.itemData.inventoryId);
             }
         }
+        /*
+        if () {
+
+        }*/
     }
     
     public void OnPointerEnter(PointerEventData eventData) {
-        Debug.Log("Mouse enter");
+        //Debug.Log("Mouse enter");
         _pointerIsOver = true;
 
-        if (cellItemData.itemData.inventoryId != 0) {
+        if (cellItemData.itemData != null) {
             UIManager.instance.ShowTooltip(transform.position, cellItemData.itemData);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        Debug.Log("Mouse exit");
+        //Debug.Log("Mouse exit");
         _pointerIsOver = false;
 
         UIManager.instance.HideTooltip();

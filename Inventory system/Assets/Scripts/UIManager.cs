@@ -27,8 +27,19 @@ public class UIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            AttributesScript.instance.ShowPanel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) {
+            EquipmentScript.instance.ShowPanel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I)) {
+            InventoryScript.instance.ShowPanel();
+        }
+    }
 
     public void ShowTooltip(Vector2 position, PickupAbleItemData itemData) {
 

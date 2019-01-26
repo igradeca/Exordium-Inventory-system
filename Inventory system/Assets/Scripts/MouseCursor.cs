@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MouseCursor : MonoBehaviour {
@@ -38,11 +40,29 @@ public class MouseCursor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (Input.GetMouseButtonDown(0)) {
+            // If we click on something that is not UI it will be true
+            if (!EventSystem.current.IsPointerOverGameObject()) {
+
+                ItemSpawnerScript.instance.Spawn(GameMasterScript.instance.player.transform.position, holdingItemData);
+                InventoryScript.instance.Remove(holdingItemData.itemId);
+                InventoryScript.instance.UpdateInventoryGrid();
+                UIManager.instance.DeactivateCursorItemInTheAir();
+            }
+        }
+
+        // Follow cursor
         if (holdingItemData != null) {
+
             Vector2 pos;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(mainCanvas.transform as RectTransform, Input.mousePosition, mainCanvas.worldCamera, out pos);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                mainCanvas.transform as RectTransform, 
+                Input.mousePosition, 
+                mainCanvas.worldCamera, 
+                out pos);
+
             transform.position = mainCanvas.transform.TransformPoint(pos) + new Vector3(20f, -25f, 0f);
-        }        
+        }
 	}
 
     public void SetItemDataToCursor(PickupAbleItemData itemData, int inventoryIndex) {

@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class AttributesScript : MonoBehaviour {
 
+    public static AttributesScript instance;
+
     public GameObject attributesPanel;
     public GameObject attributesButton;
 
     // Use this for initialization
     void Start() {
 
+        if (instance != null) {
+            Debug.LogWarning("This instance already exist!");
+            return;
+        } else {
+            instance = this;
+        }
     }
 
     // Update is called once per frame

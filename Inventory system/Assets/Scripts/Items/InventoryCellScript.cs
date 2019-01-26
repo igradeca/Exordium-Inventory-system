@@ -29,6 +29,16 @@ public class InventoryCellScript : MonoBehaviour {
         cellImage.color = Color.white;        
     }
 
+    public void SetEmptyCell() {
+
+        this.itemData = null;
+
+        stackStatus.text = "";
+        cellImage.sprite = null;
+        cellImage.color = new Color(1f, 1f, 1f, 0f);
+        backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
+    }
+
     private string UpdateStackInfo() {
 
         string stackText = "";
@@ -41,6 +51,8 @@ public class InventoryCellScript : MonoBehaviour {
                 1f - (itemData.currentStack / (float)itemData.maxStack),
                 1f - (itemData.currentStack / (float)itemData.maxStack),
                 0.31f);
+        } else {
+            backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
         }
 
         return stackText;
