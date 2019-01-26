@@ -35,7 +35,7 @@ public class EquipmentScript : MonoBehaviour {
         if (equipmentPanel.activeSelf == true) {
             equipmentPanel.SetActive(false);
             equipmentButton.SetActive(true);
-
+            UIManager.instance.PanelsClosed();
         } else {
             equipmentPanel.SetActive(true);
             equipmentButton.SetActive(false);

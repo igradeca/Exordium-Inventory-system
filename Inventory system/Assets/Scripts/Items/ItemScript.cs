@@ -16,6 +16,16 @@ public class ItemScript : InteractableScript {
         
 	}
 
+    void OnMouseEnter() {
+
+        //Debug.Log("enter");
+    }
+
+    void OnMouseExit() {
+
+        //Debug.Log("exit");
+    }
+
     public void FillItemData(PickupAbleItemData serializedData, int newItemId) {
 
         itemId = newItemId;

@@ -43,11 +43,7 @@ public class MouseCursor : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             // If we click on something that is not UI it will be true
             if (!EventSystem.current.IsPointerOverGameObject()) {
-
-                ItemSpawnerScript.instance.Spawn(GameMasterScript.instance.player.transform.position, holdingItemData);
-                InventoryScript.instance.Remove(holdingItemData.itemId);
-                InventoryScript.instance.UpdateInventoryGrid();
-                UIManager.instance.DeactivateCursorItemInTheAir();
+                InventoryScript.instance.DropItem(holdingItemData);
             }
         }
 
@@ -91,6 +87,14 @@ public class MouseCursor : MonoBehaviour {
         }
 
         return stackText;
+    }
+
+    public void RemoveItemDataFromCursor() {
+
+        cursorImage.sprite = null;
+        stackingText.text = "";
+        inventoryIndex = 0;
+        holdingItemData = null;
     }
 
 

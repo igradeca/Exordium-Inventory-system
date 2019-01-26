@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour {
     public GameObject tooltip;
     public GameObject cursorItemInTheAir;
 
+    public bool leftControlPressed;
+
     void Awake() {
 
         if (instance != null) {
@@ -38,6 +40,32 @@ public class UIManager : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.I)) {
             InventoryScript.instance.ShowPanel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)) {
+            leftControlPressed = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftControl)) {
+            leftControlPressed = false;
+        }
+
+    }
+
+    public void PanelsClosed() {
+
+        if (AllPanelsAreClosed()) {
+            MouseCursor.instance.RemoveItemDataFromCursor();
+            DeactivateCursorItemInTheAir();
+        }
+    }
+
+    private bool AllPanelsAreClosed() {
+
+        if (!AttributesScript.instance.attributesPanel.activeSelf && 
+            !EquipmentScript.instance.equipmentPanel.activeSelf && 
+            !InventoryScript.instance.inventoryPanel.activeSelf) {
+            return true;
+        } else {
+            return false;
         }
     }
 

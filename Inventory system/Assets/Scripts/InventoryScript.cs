@@ -33,6 +33,14 @@ public class InventoryScript : MonoBehaviour {
         inventoryList = new List<PickupAbleItemData>();
     }
 
+    public void DropItem(PickupAbleItemData item) {
+
+        ItemSpawnerScript.instance.Spawn(GameMasterScript.instance.player.transform.position, item);
+        Remove(item.itemId);
+        UpdateInventoryGrid();
+        UIManager.instance.DeactivateCursorItemInTheAir();
+    }
+
     public void Add(PickupAbleItemData itemData) {
 
         if (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue) {
@@ -136,7 +144,7 @@ public class InventoryScript : MonoBehaviour {
         if (inventoryPanel.activeSelf == true) {
             inventoryPanel.SetActive(false);
             inventoryButton.SetActive(true);
-            
+            UIManager.instance.PanelsClosed();
         } else {
             inventoryPanel.SetActive(true);
             inventoryButton.SetActive(false);

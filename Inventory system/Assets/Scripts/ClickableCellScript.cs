@@ -7,30 +7,27 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
 
     public InventoryCellScript cellItemData;
 
-    private bool _pointerIsOver;
-
     public void OnPointerClick(PointerEventData eventData) {
 
         if (cellItemData.itemData != null) {
-            if (eventData.button == PointerEventData.InputButton.Left) {
+            if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlPressed) {
+                InventoryScript.instance.DropItem(cellItemData.itemData);
+            } else if (eventData.button == PointerEventData.InputButton.Left) {
                 UIManager.instance.ActivateCursorItemInTheAir();   
                 MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);
-                //Debug.Log("Left click " + cellItemData.itemData.inventoryId);
+                                
             } else if (eventData.button == PointerEventData.InputButton.Middle) {
+
                 //Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
             } else if (eventData.button == PointerEventData.InputButton.Right) {
+
                 //Debug.Log("Right click " + cellItemData.itemData.inventoryId);
             }
         }
-        /*
-        if () {
 
-        }*/
     }
     
     public void OnPointerEnter(PointerEventData eventData) {
-        //Debug.Log("Mouse enter");
-        _pointerIsOver = true;
 
         if (cellItemData.itemData != null) {
             UIManager.instance.ShowTooltip(transform.position, cellItemData.itemData);
@@ -38,8 +35,6 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //Debug.Log("Mouse exit");
-        _pointerIsOver = false;
 
         UIManager.instance.HideTooltip();
     }

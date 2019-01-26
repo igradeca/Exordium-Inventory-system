@@ -32,7 +32,7 @@ public class AttributesScript : MonoBehaviour {
         if (attributesPanel.activeSelf == true) {
             attributesPanel.SetActive(false);
             attributesButton.SetActive(true);
-
+            UIManager.instance.PanelsClosed();
         } else {
             attributesPanel.SetActive(true);
             attributesButton.SetActive(false);
