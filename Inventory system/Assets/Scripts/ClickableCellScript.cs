@@ -13,11 +13,13 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
 
         if (cellItemData.itemData.inventoryId != 0) {
             if (eventData.button == PointerEventData.InputButton.Left) {
-                Debug.Log("Left click " + cellItemData.itemData.inventoryId);
+                UIManager.instance.ActivateCursorItemInTheAir();   
+                MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);
+                //Debug.Log("Left click " + cellItemData.itemData.inventoryId);
             } else if (eventData.button == PointerEventData.InputButton.Middle) {
-                Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
+                //Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
             } else if (eventData.button == PointerEventData.InputButton.Right) {
-                Debug.Log("Right click " + cellItemData.itemData.inventoryId);
+                //Debug.Log("Right click " + cellItemData.itemData.inventoryId);
             }
         }
     }

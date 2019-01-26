@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public GameObject tooltip;
+    public GameObject cursorItemInTheAir;
 
     void Awake() {
 
@@ -32,7 +33,7 @@ public class UIManager : MonoBehaviour {
     public void ShowTooltip(Vector2 position, PickupAbleItemData itemData) {
 
         tooltip.SetActive(true);
-        tooltip.transform.position = position;
+        tooltip.transform.position = position + new Vector2(-16f, 16f);
 
         tooltip.transform.GetChild(0).GetComponent<Text>().text = itemData.name + "\n" +
             " Type: " + itemData.itemType.ToString()/* + "\n"; +
@@ -44,6 +45,20 @@ public class UIManager : MonoBehaviour {
     public void HideTooltip() {
 
         tooltip.SetActive(false);
+    }
+
+    public void ActivateCursorItemInTheAir() {
+
+        if (!cursorItemInTheAir.activeSelf) {
+            cursorItemInTheAir.SetActive(true);
+        }
+    }
+
+    public void DeactivateCursorItemInTheAir() {
+
+        if (cursorItemInTheAir.activeSelf) {
+            cursorItemInTheAir.SetActive(false);
+        }
     }
 
 

@@ -28,13 +28,7 @@ public class ItemScript : InteractableScript {
         PickUp();
         base.Interact();
     }
-    /*
-    private void OnDrawGizmosSelected() {
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 0.5f);
-    }
-    */
     private void PickUp() {
 
         //Debug.Log("Item " + itemSerializedData.name + " has been picked up.");

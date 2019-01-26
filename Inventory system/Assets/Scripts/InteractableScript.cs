@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractableScript : MonoBehaviour {
         
@@ -17,6 +18,14 @@ public class InteractableScript : MonoBehaviour {
 
         
 	}
+    
+    void OnMouseDown() {
+
+        if (Input.GetMouseButtonDown(0) && playerInProximity == true) {
+            //Debug.Log("left click");
+            Interact();
+        }
+    }
 
     public virtual void Interact() {
 
@@ -26,7 +35,6 @@ public class InteractableScript : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
             playerInProximity = true;
-            Interact();
         }
     }
 

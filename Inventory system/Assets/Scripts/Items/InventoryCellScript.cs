@@ -22,8 +22,14 @@ public class InventoryCellScript : MonoBehaviour {
 
     public void UpdateCell(PickupAbleItemData itemData) {
 
-        //this.itemIndex = itemIndex;
         this.itemData = itemData;
+
+        stackStatus.text = UpdateStackInfo();
+        cellImage.sprite = this.itemData.itemImage;
+        cellImage.color = Color.white;        
+    }
+
+    private string UpdateStackInfo() {
 
         string stackText = "";
         if (itemData.maxStack == int.MaxValue) {
@@ -32,14 +38,12 @@ public class InventoryCellScript : MonoBehaviour {
             stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
             backGroundImage.color = new Color(
                 1f,
-                1f -(itemData.currentStack / (float)itemData.maxStack),
-                1f - (itemData.currentStack / (float)itemData.maxStack), 
+                1f - (itemData.currentStack / (float)itemData.maxStack),
+                1f - (itemData.currentStack / (float)itemData.maxStack),
                 0.31f);
         }
 
-        stackStatus.text = stackText;
-        cellImage.sprite = this.itemData.itemImage;
-        cellImage.color = Color.white;        
+        return stackText;
     }
 
 
