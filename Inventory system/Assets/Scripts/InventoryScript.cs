@@ -41,6 +41,11 @@ public class InventoryScript : MonoBehaviour {
         UIManager.instance.DeactivateCursorItemInTheAir();
     }
 
+    public void SplitItem() {
+
+
+    }
+
     public void Add(PickupAbleItemData itemData) {
 
         if (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue) {

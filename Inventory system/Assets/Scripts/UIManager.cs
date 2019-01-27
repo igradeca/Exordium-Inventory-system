@@ -10,7 +10,8 @@ public class UIManager : MonoBehaviour {
     public GameObject tooltip;
     public GameObject cursorItemInTheAir;
 
-    public bool leftControlPressed;
+    public bool leftControlKeyPressed;
+    public bool spaceKeyPressed;
 
     void Awake() {
 
@@ -43,9 +44,15 @@ public class UIManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
-            leftControlPressed = true;
+            leftControlKeyPressed = true;
         } else if (Input.GetKeyUp(KeyCode.LeftControl)) {
-            leftControlPressed = false;
+            leftControlKeyPressed = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            spaceKeyPressed = true;
+        } else if (Input.GetKeyUp(KeyCode.Space)) {
+            spaceKeyPressed = false;
         }
 
     }
@@ -53,7 +60,9 @@ public class UIManager : MonoBehaviour {
     public void PanelsClosed() {
 
         if (AllPanelsAreClosed()) {
-            MouseCursor.instance.RemoveItemDataFromCursor();
+            if (cursorItemInTheAir.activeSelf) {
+                MouseCursor.instance.RemoveItemDataFromCursor();
+            }            
             DeactivateCursorItemInTheAir();
         }
     }

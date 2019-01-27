@@ -163,7 +163,10 @@ public class ItemSpawnerScript : MonoBehaviour {
             string dataAsJson = File.ReadAllText(filePath);
 
             items = JsonHelper.FromJson<PickupAbleItemData>(dataAsJson);
-            //Debug.Log(items);
+
+            for (int i = 0; i < items.Length; i++) {
+                items[i].itemImage = sprites[int.Parse(items[i].itemImageName.Substring(12))];
+            }
         }
     }
 
@@ -172,7 +175,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         for (int i = 0; i < itemsToSpawn; i++) {
             Vector2 position = Random.insideUnitCircle * 2;
             int rndIndex = Random.Range(0, items.Length);
-
+            
             Spawn(position, items[rndIndex]);            
         }
     }

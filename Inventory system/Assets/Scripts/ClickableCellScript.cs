@@ -10,12 +10,13 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
     public void OnPointerClick(PointerEventData eventData) {
 
         if (cellItemData.itemData != null) {
-            if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlPressed) {
+            if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
                 InventoryScript.instance.DropItem(cellItemData.itemData);
+            } else if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
+
             } else if (eventData.button == PointerEventData.InputButton.Left) {
-                UIManager.instance.ActivateCursorItemInTheAir();   
-                MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);
-                                
+                UIManager.instance.ActivateCursorItemInTheAir();
+                MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);                
             } else if (eventData.button == PointerEventData.InputButton.Middle) {
 
                 //Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
