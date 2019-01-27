@@ -12,10 +12,8 @@ public static class AttrAndCharUtils {
 
         // Equipable
         Head,
-        Chest,
-        Legs,
+        Armor,
         Boots,
-        Gloves,
         Weapon
     }
 

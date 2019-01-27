@@ -96,7 +96,7 @@
         },
         {
             "name": "Black Leather Boots",
-            "itemType": 6,
+            "itemType": 5,
             "itemImageName": "ItemsSprite_43",
             "itemImage": {
                 "instanceID": 11602
@@ -120,7 +120,7 @@
         },
         {
             "name": "Fire Sword",
-            "itemType": 8,
+            "itemType": 6,
             "itemImageName": "ItemsSprite_47",
             "itemImage": {
                 "instanceID": 11610

@@ -151,7 +151,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[8].maxStack = 1;
         items[8].currentStack = 1;
         items[8].name = "Catarina Armor";
-        items[8].itemType = AttrAndCharUtils.ItemType.Chest;
+        items[8].itemType = AttrAndCharUtils.ItemType.Armor;
         items[8].itemImageName = sprites[27].name;
         items[8].itemImage = sprites[27];
         items[8].attributes = new Attribute[2];
