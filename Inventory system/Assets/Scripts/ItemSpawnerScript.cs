@@ -15,15 +15,11 @@ public class ItemSpawnerScript : MonoBehaviour {
     /// <summary>
     /// Auto incrementing variable.
     /// </summary>
-    public int newItemId {
-        
+    public int newItemId {        
         get {
             ++_itemId;
             return _itemId;
-        } set 
-            {
-
-        }
+        } set { }
     }
 
     public int itemsToSpawn = 5;
@@ -66,6 +62,9 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[0].itemType = AttrAndCharUtils.ItemType.Head;
         items[0].itemImageName = sprites[19].name;
         items[0].itemImage = sprites[19];
+        items[0].attributes = new Attribute[2];
+        items[0].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Intelligence, 5);
+        items[0].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Mana, 20);
 
         items[1] = new PickupAbleItemData();
         items[1].maxDurability = 1;
@@ -83,9 +82,12 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[2].maxStack = 2;
         items[2].currentStack = 1;
         items[2].name = "Beer";
-        items[2].itemType = AttrAndCharUtils.ItemType.Other;
+        items[2].itemType = AttrAndCharUtils.ItemType.Consumable;
         items[2].itemImageName = sprites[5].name;
         items[2].itemImage = sprites[5];
+        items[2].attributes = new Attribute[2];
+        items[2].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Intelligence, -10, 60);
+        items[2].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 15, 60);
 
         items[3] = new PickupAbleItemData();
         items[3].maxDurability = 1;
@@ -106,6 +108,8 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[4].itemType = AttrAndCharUtils.ItemType.Boots;
         items[4].itemImageName = sprites[43].name;
         items[4].itemImage = sprites[43];
+        items[4].attributes = new Attribute[1];
+        items[4].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Agility, 20);
 
         items[5] = new PickupAbleItemData();
         items[5].maxDurability = 140;
@@ -118,24 +122,28 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[5].itemImage = sprites[47];
 
         items[6] = new PickupAbleItemData();
-        items[6].maxDurability = 60;
-        items[6].currentDurability = 60;
+        items[1].maxDurability = 1;
+        items[1].currentDurability = 1;
         items[6].maxStack = 10;
         items[6].currentStack = 1;
         items[6].name = "Mana Potion";
         items[6].itemType = AttrAndCharUtils.ItemType.Consumable;
         items[6].itemImageName = sprites[26].name;
         items[6].itemImage = sprites[26];
+        items[6].attributes = new Attribute[1];
+        items[6].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Mana, 10f);
 
         items[7] = new PickupAbleItemData();
-        items[7].maxDurability = 60;
-        items[7].currentDurability = 60;
+        items[1].maxDurability = 1;
+        items[1].currentDurability = 1;
         items[7].maxStack = 10;
         items[7].currentStack = 1;
         items[7].name = "Health Potion";
         items[7].itemType = AttrAndCharUtils.ItemType.Consumable;
         items[7].itemImageName = sprites[4].name;
         items[7].itemImage = sprites[4];
+        items[7].attributes = new Attribute[1];
+        items[7].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 10f);
 
         items[8] = new PickupAbleItemData();
         items[8].maxDurability = 200;
@@ -146,6 +154,9 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[8].itemType = AttrAndCharUtils.ItemType.Chest;
         items[8].itemImageName = sprites[27].name;
         items[8].itemImage = sprites[27];
+        items[8].attributes = new Attribute[2];
+        items[8].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 50);
+        items[8].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 20);
 
         items[9] = new PickupAbleItemData();
         items[9].maxDurability = 150;
@@ -156,6 +167,9 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[9].itemType = AttrAndCharUtils.ItemType.Head;
         items[9].itemImageName = sprites[35].name;
         items[9].itemImage = sprites[35];
+        items[9].attributes = new Attribute[2];
+        items[9].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Dexterity, 10);
+        items[9].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 10);
 
         string json = JsonHelper.ToJson(items, true);
         File.WriteAllText(filePath, json);

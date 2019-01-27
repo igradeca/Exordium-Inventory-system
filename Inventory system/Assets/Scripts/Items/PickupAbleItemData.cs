@@ -30,6 +30,8 @@ public class PickupAbleItemData : ItemData {
 
         this.maxStack = data.maxStack;
         this.currentStack = data.currentStack;
+
+        this.attributes = data.attributes;
     }
 
 

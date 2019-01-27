@@ -5,12 +5,26 @@
             "itemType": 3,
             "itemImageName": "ItemsSprite_19",
             "itemImage": {
-                "instanceID": 11542
+                "instanceID": 11554
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [
+                {
+                    "attribute": 3,
+                    "percentage": 1.0,
+                    "value": 5,
+                    "duration": 0
+                },
+                {
+                    "attribute": 5,
+                    "percentage": 1.0,
+                    "value": 20,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
             "maxDurability": 100,
             "currentDurability": 100,
             "maxStack": 1,
@@ -21,12 +35,13 @@
             "itemType": 2,
             "itemImageName": "ItemsSprite_52",
             "itemImage": {
-                "instanceID": 11608
+                "instanceID": 11620
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [],
+            "itemId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
             "maxStack": 5,
@@ -34,15 +49,29 @@
         },
         {
             "name": "Beer",
-            "itemType": 2,
+            "itemType": 1,
             "itemImageName": "ItemsSprite_5",
             "itemImage": {
-                "instanceID": 11514
+                "instanceID": 11526
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [
+                {
+                    "attribute": 3,
+                    "percentage": 1.0,
+                    "value": -10,
+                    "duration": 60
+                },
+                {
+                    "attribute": 0,
+                    "percentage": 1.0,
+                    "value": 15,
+                    "duration": 60
+                }
+            ],
+            "itemId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
             "maxStack": 2,
@@ -53,12 +82,13 @@
             "itemType": 2,
             "itemImageName": "ItemsSprite_17",
             "itemImage": {
-                "instanceID": 11538
+                "instanceID": 11550
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [],
+            "itemId": 0,
             "maxDurability": 1,
             "currentDurability": 1,
             "maxStack": 2147483647,
@@ -69,12 +99,20 @@
             "itemType": 6,
             "itemImageName": "ItemsSprite_43",
             "itemImage": {
-                "instanceID": 11590
+                "instanceID": 11602
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [
+                {
+                    "attribute": 2,
+                    "percentage": 1.0,
+                    "value": 20,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
             "maxDurability": 60,
             "currentDurability": 60,
             "maxStack": 1,
@@ -85,12 +123,13 @@
             "itemType": 8,
             "itemImageName": "ItemsSprite_47",
             "itemImage": {
-                "instanceID": 11598
+                "instanceID": 11610
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [],
+            "itemId": 0,
             "maxDurability": 140,
             "currentDurability": 140,
             "maxStack": 1,
@@ -101,14 +140,22 @@
             "itemType": 1,
             "itemImageName": "ItemsSprite_26",
             "itemImage": {
-                "instanceID": 11556
+                "instanceID": 11568
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
-            "maxDurability": 60,
-            "currentDurability": 60,
+            "attributes": [
+                {
+                    "attribute": 5,
+                    "percentage": 10.0,
+                    "value": 0,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
+            "maxDurability": 100,
+            "currentDurability": 100,
             "maxStack": 10,
             "currentStack": 1
         },
@@ -117,14 +164,22 @@
             "itemType": 1,
             "itemImageName": "ItemsSprite_4",
             "itemImage": {
-                "instanceID": 11512
+                "instanceID": 11524
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
-            "maxDurability": 60,
-            "currentDurability": 60,
+            "attributes": [
+                {
+                    "attribute": 4,
+                    "percentage": 10.0,
+                    "value": 0,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
+            "maxDurability": 100,
+            "currentDurability": 100,
             "maxStack": 10,
             "currentStack": 1
         },
@@ -133,12 +188,26 @@
             "itemType": 4,
             "itemImageName": "ItemsSprite_27",
             "itemImage": {
-                "instanceID": 11558
+                "instanceID": 11570
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [
+                {
+                    "attribute": 4,
+                    "percentage": 1.0,
+                    "value": 50,
+                    "duration": 0
+                },
+                {
+                    "attribute": 0,
+                    "percentage": 1.0,
+                    "value": 20,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
             "maxDurability": 200,
             "currentDurability": 180,
             "maxStack": 1,
@@ -149,12 +218,26 @@
             "itemType": 3,
             "itemImageName": "ItemsSprite_35",
             "itemImage": {
-                "instanceID": 11574
+                "instanceID": 11586
             },
             "backgroundImage": {
                 "instanceID": 0
             },
-            "inventoryId": 0,
+            "attributes": [
+                {
+                    "attribute": 1,
+                    "percentage": 1.0,
+                    "value": 10,
+                    "duration": 0
+                },
+                {
+                    "attribute": 0,
+                    "percentage": 1.0,
+                    "value": 10,
+                    "duration": 0
+                }
+            ],
+            "itemId": 0,
             "maxDurability": 150,
             "currentDurability": 150,
             "maxStack": 1,
