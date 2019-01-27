@@ -19,7 +19,7 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
                 }
             } else if (eventData.button == PointerEventData.InputButton.Left) {
                 UIManager.instance.ActivateCursorItemInTheAir();
-                MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);                
+                MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);
             } else if (eventData.button == PointerEventData.InputButton.Middle) {
 
                 //Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
