@@ -12,7 +12,7 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
         if (cellItemData.itemData != null) {
             if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
                 InventoryScript.instance.DropItem(cellItemData.itemData);
-            } else if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.spaceKeyPressed) {
+            } else if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftShiftKeyPressed) {
                 if (cellItemData.itemData.currentStack > 1 && cellItemData.itemData.maxStack > 1) {
                     UIManager.instance.ShowSplitPanel();
                     SplitPanelScript.instance.SetPanel(cellItemData.itemData);
@@ -24,7 +24,7 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
 
                 //Debug.Log("Middle click " + cellItemData.itemData.inventoryId);
             } else if (eventData.button == PointerEventData.InputButton.Right) {
-
+                
                 //Debug.Log("Right click " + cellItemData.itemData.inventoryId);
             }
         }

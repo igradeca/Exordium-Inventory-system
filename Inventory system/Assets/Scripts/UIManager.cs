@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour {
     public GameObject cursorItemInTheAir;
 
     public bool leftControlKeyPressed;
-    public bool spaceKeyPressed;
+    public bool leftShiftKeyPressed;
 
     void Awake() {
 
@@ -50,10 +50,10 @@ public class UIManager : MonoBehaviour {
             leftControlKeyPressed = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            spaceKeyPressed = true;
-        } else if (Input.GetKeyUp(KeyCode.Space)) {
-            spaceKeyPressed = false;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) {
+            leftShiftKeyPressed = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            leftShiftKeyPressed = false;
         }
 
     }
@@ -64,7 +64,6 @@ public class UIManager : MonoBehaviour {
             if (cursorItemInTheAir.activeSelf) {
                 MouseCursor.instance.RemoveItemDataFromCursor();
             }            
-            DeactivateCursorItemInTheAir();
         }
     }
 
@@ -84,11 +83,47 @@ public class UIManager : MonoBehaviour {
         tooltip.SetActive(true);
         tooltip.transform.position = position + new Vector2(-16f, 16f);
 
-        tooltip.transform.GetChild(0).GetComponent<Text>().text = itemData.name + "\n" +
-            " Type: " + itemData.itemType.ToString()/* + "\n"; +
-            " Type: " + itemData. + "\n" +
-            " Type: " + itemData.itemType.ToString() + "\n" +
-            " Type: " + itemData.itemType.ToString()*/;
+        string textToDisplay = itemData.name + "\n" +
+            " Type: " + itemData.itemType.ToString();
+        textToDisplay += AddAttributesStringToTooltip(itemData.attributes);
+        textToDisplay += AddDurabilityStringToTooltip(itemData.currentDurability, itemData.maxDurability);
+
+        tooltip.transform.GetChild(0).GetComponent<Text>().text = textToDisplay;
+    }
+
+    private string AddAttributesStringToTooltip(Attribute[] attributes) {
+
+        string attributesDisplay = "";
+
+        for (int i = 0; i < attributes.Length; i++) {
+
+            attributesDisplay += "\n " + attributes[i].attribute.ToString() + " ";
+
+            if (attributes[i].value != 0) {
+                attributesDisplay += (attributes[i].value > 0) ? "+" : "";
+                attributesDisplay +=  attributes[i].value.ToString();
+            } else {
+                attributesDisplay += (attributes[i].percentage > 0) ? "+" : "";
+                attributesDisplay += (attributes[i].percentage * 100).ToString() + "%";
+            }
+
+            if (attributes[i].duration > 0) {
+                attributesDisplay += " for " + attributes[i].duration.ToString() + " sec";
+            }
+        }
+
+        return attributesDisplay;
+    }
+
+    private string AddDurabilityStringToTooltip(int currentDurability, int maxDurability) {
+
+        string durabilityDisplay = "";
+
+        if (maxDurability > 1) {
+            durabilityDisplay += "\n\n Durability: " + currentDurability.ToString() + "/" + maxDurability.ToString();
+        }
+
+        return durabilityDisplay;
     }
 
     public void HideTooltip() {

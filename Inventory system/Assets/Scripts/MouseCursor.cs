@@ -47,6 +47,10 @@ public class MouseCursor : MonoBehaviour {
             }
         }
 
+        if (Input.GetMouseButtonDown(1)) {
+            RemoveItemDataFromCursor();
+        }
+
         // Follow cursor
         if (holdingItemData != null) {
 
@@ -95,6 +99,8 @@ public class MouseCursor : MonoBehaviour {
         stackingText.text = "";
         inventoryIndex = 0;
         holdingItemData = null;
+
+        UIManager.instance.DeactivateCursorItemInTheAir();
     }
 
 

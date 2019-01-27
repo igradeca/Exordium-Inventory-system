@@ -8,7 +8,7 @@ public static class AttrAndCharUtils {
         // Other types
         Permanent,
         Consumable,
-        Other,
+        Misc,
 
         // Equipable
         Head,

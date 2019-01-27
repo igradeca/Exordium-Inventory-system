@@ -148,14 +148,14 @@
             "attributes": [
                 {
                     "attribute": 5,
-                    "percentage": 10.0,
+                    "percentage": 0.10000000149011612,
                     "value": 0,
                     "duration": 0
                 }
             ],
             "itemId": 0,
-            "maxDurability": 100,
-            "currentDurability": 100,
+            "maxDurability": 1,
+            "currentDurability": 1,
             "maxStack": 10,
             "currentStack": 1
         },
@@ -172,14 +172,14 @@
             "attributes": [
                 {
                     "attribute": 4,
-                    "percentage": 10.0,
+                    "percentage": 0.10000000149011612,
                     "value": 0,
                     "duration": 0
                 }
             ],
             "itemId": 0,
-            "maxDurability": 100,
-            "currentDurability": 100,
+            "maxDurability": 1,
+            "currentDurability": 1,
             "maxStack": 10,
             "currentStack": 1
         },

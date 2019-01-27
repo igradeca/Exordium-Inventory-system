@@ -72,7 +72,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[1].maxStack = 5;
         items[1].currentStack = 1;
         items[1].name = "Viper Eye";
-        items[1].itemType = AttrAndCharUtils.ItemType.Other;
+        items[1].itemType = AttrAndCharUtils.ItemType.Misc;
         items[1].itemImageName = sprites[52].name;
         items[1].itemImage = sprites[52];
 
@@ -95,7 +95,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[3].maxStack = int.MaxValue;
         items[3].currentStack = 100;
         items[3].name = "Gold";
-        items[3].itemType = AttrAndCharUtils.ItemType.Other;
+        items[3].itemType = AttrAndCharUtils.ItemType.Misc;
         items[3].itemImageName = sprites[17].name;
         items[3].itemImage = sprites[17];
 
@@ -122,8 +122,8 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[5].itemImage = sprites[47];
 
         items[6] = new PickupAbleItemData();
-        items[1].maxDurability = 1;
-        items[1].currentDurability = 1;
+        items[6].maxDurability = 1;
+        items[6].currentDurability = 1;
         items[6].maxStack = 10;
         items[6].currentStack = 1;
         items[6].name = "Mana Potion";
@@ -131,11 +131,11 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[6].itemImageName = sprites[26].name;
         items[6].itemImage = sprites[26];
         items[6].attributes = new Attribute[1];
-        items[6].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Mana, 10f);
+        items[6].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Mana, 0.1f);
 
         items[7] = new PickupAbleItemData();
-        items[1].maxDurability = 1;
-        items[1].currentDurability = 1;
+        items[7].maxDurability = 1;
+        items[7].currentDurability = 1;
         items[7].maxStack = 10;
         items[7].currentStack = 1;
         items[7].name = "Health Potion";
@@ -143,7 +143,7 @@ public class ItemSpawnerScript : MonoBehaviour {
         items[7].itemImageName = sprites[4].name;
         items[7].itemImage = sprites[4];
         items[7].attributes = new Attribute[1];
-        items[7].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 10f);
+        items[7].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 0.1f);
 
         items[8] = new PickupAbleItemData();
         items[8].maxDurability = 200;
