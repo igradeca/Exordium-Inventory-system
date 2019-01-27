@@ -2,29 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemScript : InteractableScript {
+/// <summary>
+/// Script used for dropped items in the scene.
+/// </summary>
+public class DroppedItem : ItemInteraction {
 
-    //public PickupAbleItemSerializeObject itemSerializedData;
     public PickupAbleItemData itemData;
 
     public int itemId;
     public SpriteRenderer spriteRenderer;
-
-	// Use this for initialization
-	void Start () {
-
-        
-	}
-
-    void OnMouseEnter() {
-
-        //Debug.Log("enter");
-    }
-
-    void OnMouseExit() {
-
-        //Debug.Log("exit");
-    }
 
     public void FillItemData(PickupAbleItemData serializedData, int newItemId) {
 
@@ -41,9 +27,7 @@ public class ItemScript : InteractableScript {
 
     private void PickUp() {
 
-        //Debug.Log("Item " + itemSerializedData.name + " has been picked up.");
-
-        InventoryScript.instance.Add(itemData, false);        
+        Inventory.instance.Add(itemData, false);        
         Destroy(gameObject);
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryCellScript : MonoBehaviour {
+public class ItemCell : MonoBehaviour {
 
     public Text stackStatus;
     public Image cellImage;
@@ -31,7 +31,7 @@ public class InventoryCellScript : MonoBehaviour {
 
     public void SetEmptyCell() {
 
-        this.itemData = null;
+        itemData = null;
 
         stackStatus.text = "";
         cellImage.sprite = null;

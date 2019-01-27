@@ -42,8 +42,8 @@ public class SplitPanelScript : MonoBehaviour {
         PickupAbleItemData newItem = new PickupAbleItemData(itemToSplit, ItemSpawnerScript.instance.newItemId);
         newItem.currentStack = (int)stackSlider.value;
 
-        InventoryScript.instance.Add(newItem, true);
-        InventoryScript.instance.UpdateInventoryGrid();
+        Inventory.instance.Add(newItem, true);
+        Inventory.instance.UpdateInventoryGrid();
 
         UIManager.instance.HideSplitPanel();
     }

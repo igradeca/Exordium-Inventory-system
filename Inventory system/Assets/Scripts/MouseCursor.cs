@@ -8,11 +8,7 @@ using UnityEngine.UI;
 public class MouseCursor : MonoBehaviour {
 
     public static MouseCursor instance;
-    /*
-    public GameObject cursorCanvas;
-    public Image itemImage;
-    public GameObject stackInfo;
-    */
+
     public Canvas mainCanvas;
     public Image cursorImage;
     public GameObject stackingBackground;
@@ -33,8 +29,6 @@ public class MouseCursor : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-
     }
 	
 	// Update is called once per frame
@@ -43,7 +37,7 @@ public class MouseCursor : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             // If we click on something that is not UI it will be true
             if (!EventSystem.current.IsPointerOverGameObject()) {
-                InventoryScript.instance.DropItem(holdingItemData);
+                Inventory.instance.DropItem(holdingItemData);
             }
         }
 

@@ -36,8 +36,6 @@ public class ItemSpawnerScript : MonoBehaviour {
         } else {
             instance = this;
         }
-
-        //itemId = 0;
     }
 
     // Use this for initialization
@@ -203,9 +201,9 @@ public class ItemSpawnerScript : MonoBehaviour {
 
         GameObject newItem = Instantiate(itemPrefab);
         if (itemData.itemId == 0) {
-            newItem.GetComponent<ItemScript>().FillItemData(itemData, newItemId);
+            newItem.GetComponent<DroppedItem>().FillItemData(itemData, newItemId);
         } else {
-            newItem.GetComponent<ItemScript>().FillItemData(itemData, itemData.itemId);
+            newItem.GetComponent<DroppedItem>().FillItemData(itemData, itemData.itemId);
         }
         
         newItem.transform.position = position;

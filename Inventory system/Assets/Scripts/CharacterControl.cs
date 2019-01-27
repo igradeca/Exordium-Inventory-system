@@ -11,7 +11,7 @@ public class CharacterControl : MonoBehaviour {
     public Rigidbody2D rigidBody;
     public AttributesScript attributesScript;
     public EquipmentScript equipmentScript;
-    public InventoryScript inventoryScript;
+    public Inventory inventoryScript;
 
     // Use this for initialization
     void Start () {

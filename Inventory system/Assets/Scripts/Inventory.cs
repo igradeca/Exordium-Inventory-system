@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryScript : MonoBehaviour {
+public class Inventory : MonoBehaviour {
 
-    public static InventoryScript instance;
+    public static Inventory instance;
 
     public readonly int gridRowLength = 5;
     public GameObject inventoryPanel;
@@ -73,18 +73,6 @@ public class InventoryScript : MonoBehaviour {
 
     public void Remove(int inventoryId) {
 
-        RemoveItemByInventoryId(inventoryId);
-        /*
-        if (itemData.maxStack > 1) {
-            // stacking code goes here
-        } else {
-            inventoryList.Remove(itemData);
-        }
-        */
-    }
-
-    private void RemoveItemByInventoryId(int inventoryId) {
-
         for (int i = 0; i < inventoryList.Count; i++) {
             if (inventoryList[i].itemId == inventoryId) {
                 inventoryList.RemoveAt(i);
@@ -105,11 +93,11 @@ public class InventoryScript : MonoBehaviour {
             InstantiateNewEmptyCells(5);
         }
 
-        InventoryCellScript[] cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
+        ItemCell[] cells = inventoryUIList.GetComponentsInChildren<ItemCell>();
         for (int i = 0; i < inventoryList.Count; i++) {
             if (cells.Length <= i + 1) {
                 InstantiateNewEmptyCells(5);
-                cells = inventoryUIList.GetComponentsInChildren<InventoryCellScript>();
+                cells = inventoryUIList.GetComponentsInChildren<ItemCell>();
             }
             cells[i].UpdateCell(inventoryList[i]);
         }

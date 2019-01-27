@@ -25,8 +25,7 @@ public class UIManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
-		
+    void Start () {		
 	}
 	
 	// Update is called once per frame
@@ -41,7 +40,7 @@ public class UIManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.I)) {
-            InventoryScript.instance.ShowPanel();
+            Inventory.instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
@@ -55,7 +54,6 @@ public class UIManager : MonoBehaviour {
         } else if (Input.GetKeyUp(KeyCode.LeftShift)) {
             leftShiftKeyPressed = false;
         }
-
     }
 
     public void PanelsClosed() {
@@ -71,7 +69,7 @@ public class UIManager : MonoBehaviour {
 
         if (!AttributesScript.instance.attributesPanel.activeSelf && 
             !EquipmentScript.instance.equipmentPanel.activeSelf && 
-            !InventoryScript.instance.inventoryPanel.activeSelf) {
+            !Inventory.instance.inventoryPanel.activeSelf) {
             return true;
         } else {
             return false;

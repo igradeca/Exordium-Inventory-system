@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InteractableScript : MonoBehaviour {
-        
+public class ItemInteraction : MonoBehaviour {
+
     public bool playerInProximity;
 
 	// Use this for initialization
@@ -12,24 +12,17 @@ public class InteractableScript : MonoBehaviour {
                 
         playerInProximity = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
-
-        
-	}
     
     void OnMouseDown() {
 
         if (Input.GetMouseButtonDown(0) && playerInProximity == true) {
-            //Debug.Log("left click");
             Interact();
         }
     }
 
     public virtual void Interact() {
 
-        InventoryScript.instance.UpdateInventoryGrid();
+        Inventory.instance.UpdateInventoryGrid();
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
