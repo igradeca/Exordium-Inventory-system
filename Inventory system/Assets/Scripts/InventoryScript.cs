@@ -46,9 +46,9 @@ public class InventoryScript : MonoBehaviour {
 
     }
 
-    public void Add(PickupAbleItemData itemData) {
+    public void Add(PickupAbleItemData itemData, bool newStack) {
 
-        if (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue) {
+        if (newStack == false && (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue)) {
             _AddToExistingElement(itemData);
         }
         
@@ -97,6 +97,9 @@ public class InventoryScript : MonoBehaviour {
         }
     }
 
+    //
+    // This function needs to be changed. It is too chaotic right now.
+    //
     public void UpdateInventoryGrid() {
 
         if (inventoryPanel.activeSelf == false) {

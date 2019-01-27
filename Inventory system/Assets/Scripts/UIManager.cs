@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour {
     public static UIManager instance;
 
     public GameObject tooltip;
+    public GameObject splitPanel;
     public GameObject cursorItemInTheAir;
 
     public bool leftControlKeyPressed;
@@ -93,6 +94,16 @@ public class UIManager : MonoBehaviour {
     public void HideTooltip() {
 
         tooltip.SetActive(false);
+    }
+
+    public void ShowSplitPanel() {
+
+        splitPanel.SetActive(true);
+    }
+
+    public void HideSplitPanel() {
+
+        splitPanel.SetActive(false);
     }
 
     public void ActivateCursorItemInTheAir() {

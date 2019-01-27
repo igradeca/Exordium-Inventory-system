@@ -12,8 +12,11 @@ public class ClickableCellScript : MonoBehaviour, IPointerClickHandler, IPointer
         if (cellItemData.itemData != null) {
             if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
                 InventoryScript.instance.DropItem(cellItemData.itemData);
-            } else if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
-
+            } else if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.spaceKeyPressed) {
+                if (cellItemData.itemData.currentStack > 1 && cellItemData.itemData.maxStack > 1) {
+                    UIManager.instance.ShowSplitPanel();
+                    SplitPanelScript.instance.SetPanel(cellItemData.itemData);
+                }
             } else if (eventData.button == PointerEventData.InputButton.Left) {
                 UIManager.instance.ActivateCursorItemInTheAir();
                 MouseCursor.instance.SetItemDataToCursor(cellItemData.itemData, cellItemData.itemIndex);                

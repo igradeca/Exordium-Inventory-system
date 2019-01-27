@@ -11,7 +11,12 @@ public class ItemSpawnerScript : MonoBehaviour {
     public Sprite[] sprites;
 
     private int _itemId;
+
+    /// <summary>
+    /// Auto incrementing variable.
+    /// </summary>
     public int newItemId {
+        
         get {
             ++_itemId;
             return _itemId;

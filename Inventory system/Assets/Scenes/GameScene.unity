@@ -299,8 +299,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooltip: {fileID: 1222404669}
+  splitPanel: {fileID: 506859259}
   cursorItemInTheAir: {fileID: 1328182502}
-  leftControlPressed: 0
+  leftControlKeyPressed: 0
+  spaceKeyPressed: 0
 --- !u!1 &254793807
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +445,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1908237191642682, guid: e346f1bd10c0c764fa26697dd8e0c854,
     type: 2}
   m_PrefabInternal: {fileID: 867723989}
+--- !u!1 &506859259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1457307910846340, guid: 2db5d8977c93e0e438900c1a610696f9,
+    type: 2}
+  m_PrefabInternal: {fileID: 2127449562}
 --- !u!1001 &544882046
 Prefab:
   m_ObjectHideFlags: 0
@@ -3244,9 +3251,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1457307910846340, guid: 2db5d8977c93e0e438900c1a610696f9, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114476620479391382, guid: 2db5d8977c93e0e438900c1a610696f9,
+        type: 2}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshTextValue
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2db5d8977c93e0e438900c1a610696f9, type: 2}

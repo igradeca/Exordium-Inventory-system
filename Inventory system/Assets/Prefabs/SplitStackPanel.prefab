@@ -137,13 +137,14 @@ GameObject:
   - component: {fileID: 224590651900366422}
   - component: {fileID: 222695207518489518}
   - component: {fileID: 114322211295112532}
+  - component: {fileID: 114079004051090096}
   m_Layer: 5
   m_Name: SplitStackPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1495698406846510
 GameObject:
   m_ObjectHideFlags: 1
@@ -229,6 +230,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114079004051090096
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457307910846340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6565230e571b964e8a991a4a9b947e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemToSplit:
+    name: 
+    itemType: 0
+    itemImageName: 
+    itemImage: {fileID: 0}
+    backgroundImage: {fileID: 0}
+    itemId: 0
+    maxDurability: 100
+    currentDurability: 100
+    maxStack: 1
+    currentStack: 1
+  stackValueDisplay: {fileID: 114089509617384902}
+  stackSlider: {fileID: 114476620479391382}
 --- !u!114 &114089509617384902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,7 +352,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114163575707379046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114079004051090096}
+        m_MethodName: CreateNewStack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114291732507971712
@@ -368,7 +404,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114691918465358818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114079004051090096}
+        m_MethodName: CancelStacking
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114322211295112532
@@ -437,13 +484,24 @@ MonoBehaviour:
   m_FillRect: {fileID: 224136340526787624}
   m_HandleRect: {fileID: 224343974150198282}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_MinValue: 1
+  m_MaxValue: 2
+  m_WholeNumbers: 1
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114079004051090096}
+        m_MethodName: ChangeTextValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114554922525459120

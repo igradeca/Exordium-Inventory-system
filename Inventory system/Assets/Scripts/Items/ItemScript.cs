@@ -43,7 +43,7 @@ public class ItemScript : InteractableScript {
 
         //Debug.Log("Item " + itemSerializedData.name + " has been picked up.");
 
-        InventoryScript.instance.Add(itemData);        
+        InventoryScript.instance.Add(itemData, false);        
         Destroy(gameObject);
     }
 
