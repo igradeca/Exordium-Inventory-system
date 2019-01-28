@@ -27,8 +27,21 @@ public class DroppedItem : ItemInteraction {
 
     private void PickUp() {
 
-        Inventory.instance.Add(itemData, false);
+        if (ItemToEquip()) {
+            Equipment.instance.Add(itemData);
+        } else {
+            Inventory.instance.Add(itemData, false);
+        }
         Destroy(gameObject);
+    }
+
+    private bool ItemToEquip() {
+
+        if ((int)itemData.itemType < 4 && Equipment.instance.IsSlotEmpty(itemData.itemType)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
