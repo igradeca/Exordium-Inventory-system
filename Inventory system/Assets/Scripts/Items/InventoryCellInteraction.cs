@@ -40,7 +40,16 @@ public class InventoryCellInteraction : ItemCell, IPointerClickHandler, IPointer
                 // consume item
             }
         } else if (eventData.button == PointerEventData.InputButton.Right) {
-            
+            if (!this.IsEmpty()) {
+                if ((int)cellItemData.itemType < 4 && Equipment.instance.IsSlotEmpty(cellItemData.itemType)) {
+                    Equipment.instance.AddAndUpdateGrid(cellItemData);
+                    Inventory.instance.RemoveAndUpdateGrid(cellItemData);
+                } else {
+                    Inventory.instance.Add(Equipment.instance.equipedItems[(int)cellItemData.itemType], true);
+                    Equipment.instance.AddAndUpdateGrid(cellItemData);
+                    Inventory.instance.RemoveAndUpdateGrid(cellItemData);
+                }                
+            }            
         }
     }
     

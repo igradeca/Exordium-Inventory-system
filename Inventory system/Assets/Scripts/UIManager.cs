@@ -61,7 +61,10 @@ public class UIManager : MonoBehaviour {
         if (AllPanelsAreClosed()) {
             if (cursorItemInTheAir.activeSelf) {
                 CursorItemHolder.instance.EmptyItemData();
-            }            
+            }
+            if (tooltip.activeSelf) {
+                HideTooltip();
+            }
         }
     }
 

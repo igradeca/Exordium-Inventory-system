@@ -17,7 +17,10 @@ public class EquipmentCellInteraction : ItemCell, IPointerClickHandler, IPointer
         OnLeftMouseClick(eventData);
 
         if (eventData.button == PointerEventData.InputButton.Right) {
-
+            if (!this.IsEmpty()) {
+                Inventory.instance.AddAndUpdateGrid(cellItemData, true);
+                Equipment.instance.RemoveAndUpdateGrid(cellItemType);
+            }            
         }
     }
 
@@ -37,7 +40,8 @@ public class EquipmentCellInteraction : ItemCell, IPointerClickHandler, IPointer
 
         if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
             if (!this.IsEmpty()) {
-
+                ItemSpawnerScript.instance.Spawn(cellItemData, GameMasterScript.instance.player.transform.position);
+                Equipment.instance.RemoveAndUpdateGrid(cellItemType);
             }
         } else if (eventData.button == PointerEventData.InputButton.Left) {
             if (!this.IsEmpty()) {

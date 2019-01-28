@@ -89,6 +89,15 @@ public class Equipment : MonoBehaviour {
         }
     }
 
+    public bool IsSlotEmpty(AttrAndCharUtils.ItemType slotType) {
+
+        if (equipedItems[(int)slotType].itemId == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public void ShowPanel() {
 
         if (equipmentPanel.activeSelf == true) {
