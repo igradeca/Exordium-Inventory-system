@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour {
     public GameObject inventoryUIList;
     public GameObject inventoryButton;
 
-    public GameObject inventoryItemCell;
+    public GameObject emptyInventoryItemCell;
     private GameObject _cell;
     
     public List<PickupAbleItemData> inventoryList;
@@ -32,6 +32,20 @@ public class Inventory : MonoBehaviour {
 
         inventoryList = new List<PickupAbleItemData>();
     }
+
+    public void AddAndUpdateGrid(PickupAbleItemData item, bool newStack) {
+
+        Add(item, newStack);
+        UpdateInventoryGrid();
+    }
+
+    public void RemoveAndUpdateGrid(PickupAbleItemData item) {
+
+        Remove(item.itemId);
+        UpdateInventoryGrid();
+    }
+
+    
 
     public void Add(PickupAbleItemData itemData, bool newStack) {
 
@@ -106,22 +120,10 @@ public class Inventory : MonoBehaviour {
 
     }
 
-    public void RemoveAndUpdateGrid(PickupAbleItemData item) {
-
-        Remove(item.itemId);
-        UpdateInventoryGrid();
-    }
-
-    public void AddAndUpdateGrid(PickupAbleItemData item, bool newStack) {
-
-        Add(item, newStack);
-        UpdateInventoryGrid();
-    }
-
     private void InstantiateNewEmptyCells(int cellsNumber = 1) {
 
         for (int i = 0; i < cellsNumber; i++) {
-            _cell = Instantiate(inventoryItemCell, inventoryUIList.transform, false);
+            _cell = Instantiate(emptyInventoryItemCell, inventoryUIList.transform, false);
             _cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
     }

@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 224607571530117010}
   - component: {fileID: 222394728258843250}
   - component: {fileID: 114934739710267228}
-  - component: {fileID: 114780654323574542}
+  - component: {fileID: 114428773674294958}
   m_Layer: 5
   m_Name: EquipmentCell
   m_TagString: EquipmentCell
@@ -63,6 +63,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114428773674294958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1860952108151546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c94a03145c38142b779c50c89e2a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stackStatus: {fileID: 114979698911507772}
+  cellImage: {fileID: 114722411663222428}
+  backGroundImage: {fileID: 114934739710267228}
+  cellItemData:
+    name: 
+    itemType: 0
+    itemImageName: 
+    itemImage: {fileID: 0}
+    backgroundImage: {fileID: 0}
+    attributes: []
+    itemId: 0
+    maxDurability: 100
+    currentDurability: 100
+    maxStack: 1
+    currentStack: 1
 --- !u!114 &114722411663222428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,32 +116,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114780654323574542
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1860952108151546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab2d9dd508cefb74aaa68ace7c4f9570, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stackStatus: {fileID: 114979698911507772}
-  cellImage: {fileID: 114722411663222428}
-  backGroundImage: {fileID: 114934739710267228}
-  itemData:
-    name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 100
-    currentDurability: 100
-    maxStack: 1
-    currentStack: 1
 --- !u!114 &114934739710267228
 MonoBehaviour:
   m_ObjectHideFlags: 1

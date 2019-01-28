@@ -17,7 +17,6 @@ public class ItemCell : MonoBehaviour {
 
         cellImage = transform.GetChild(0).GetComponent<Image>();
         stackStatus = transform.GetChild(1).GetComponent<Text>();
-        //itemData = null;
     }
 
     public void UpdateCell(PickupAbleItemData itemData) {
@@ -27,16 +26,6 @@ public class ItemCell : MonoBehaviour {
         stackStatus.text = UpdateStackInfo();
         cellImage.sprite = this.cellItemData.itemImage;
         cellImage.color = Color.white;        
-    }
-
-    public void SetEmptyCell() {
-
-        cellItemData = null;
-
-        stackStatus.text = "";
-        cellImage.sprite = null;
-        cellImage.color = new Color(1f, 1f, 1f, 0f);
-        backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
     }
 
     private string UpdateStackInfo() {
@@ -56,6 +45,27 @@ public class ItemCell : MonoBehaviour {
         }
 
         return stackText;
+    }
+
+    public void SetEmptyCell() {
+
+        cellItemData = null;
+
+        stackStatus.text = "";
+        cellImage.sprite = null;
+        cellImage.color = new Color(1f, 1f, 1f, 0f);
+        backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
+    }
+
+    public bool IsEmpty() {
+
+        if (cellItemData == null) {
+            return true;
+        } else if (cellItemData.itemId == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 

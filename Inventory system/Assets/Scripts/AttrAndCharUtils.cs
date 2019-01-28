@@ -5,16 +5,17 @@ using UnityEngine;
 public static class AttrAndCharUtils {
 
     public enum ItemType {
-        // Other types
-        Permanent,
-        Consumable,
-        Misc,
 
         // Equipable
         Head,
         Armor,
         Boots,
-        Weapon
+        Weapon,
+
+        // Other types
+        Permanent,
+        Consumable,
+        Misc
     }
 
     public enum AttributeType {

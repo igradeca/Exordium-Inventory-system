@@ -12,9 +12,9 @@ public class PickupAbleItemData : ItemData {
 
     public int maxStack = 1;
     public int currentStack = 1;
-
+    
     public PickupAbleItemData() {}
-
+    
     public PickupAbleItemData(PickupAbleItemData data, int newItemId) {
 
         this.itemId = newItemId;

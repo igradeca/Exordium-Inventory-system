@@ -2,10 +2,10 @@
     "Items": [
         {
             "name": "Wizard's Hat",
-            "itemType": 3,
+            "itemType": 0,
             "itemImageName": "ItemsSprite_19",
             "itemImage": {
-                "instanceID": 11554
+                "instanceID": 11594
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -32,10 +32,10 @@
         },
         {
             "name": "Viper Eye",
-            "itemType": 2,
+            "itemType": 6,
             "itemImageName": "ItemsSprite_52",
             "itemImage": {
-                "instanceID": 11620
+                "instanceID": 11660
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -49,10 +49,10 @@
         },
         {
             "name": "Beer",
-            "itemType": 1,
+            "itemType": 5,
             "itemImageName": "ItemsSprite_5",
             "itemImage": {
-                "instanceID": 11526
+                "instanceID": 11566
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -79,10 +79,10 @@
         },
         {
             "name": "Gold",
-            "itemType": 2,
+            "itemType": 6,
             "itemImageName": "ItemsSprite_17",
             "itemImage": {
-                "instanceID": 11550
+                "instanceID": 11590
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -96,10 +96,10 @@
         },
         {
             "name": "Black Leather Boots",
-            "itemType": 5,
+            "itemType": 2,
             "itemImageName": "ItemsSprite_43",
             "itemImage": {
-                "instanceID": 11602
+                "instanceID": 11642
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -120,10 +120,10 @@
         },
         {
             "name": "Fire Sword",
-            "itemType": 6,
+            "itemType": 3,
             "itemImageName": "ItemsSprite_47",
             "itemImage": {
-                "instanceID": 11610
+                "instanceID": 11650
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -137,10 +137,10 @@
         },
         {
             "name": "Mana Potion",
-            "itemType": 1,
+            "itemType": 5,
             "itemImageName": "ItemsSprite_26",
             "itemImage": {
-                "instanceID": 11568
+                "instanceID": 11608
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -161,10 +161,10 @@
         },
         {
             "name": "Health Potion",
-            "itemType": 1,
+            "itemType": 5,
             "itemImageName": "ItemsSprite_4",
             "itemImage": {
-                "instanceID": 11524
+                "instanceID": 11564
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -185,10 +185,10 @@
         },
         {
             "name": "Catarina Armor",
-            "itemType": 4,
+            "itemType": 1,
             "itemImageName": "ItemsSprite_27",
             "itemImage": {
-                "instanceID": 11570
+                "instanceID": 11610
             },
             "backgroundImage": {
                 "instanceID": 0
@@ -215,10 +215,10 @@
         },
         {
             "name": "Catarina Helm",
-            "itemType": 3,
+            "itemType": 0,
             "itemImageName": "ItemsSprite_35",
             "itemImage": {
-                "instanceID": 11586
+                "instanceID": 11626
             },
             "backgroundImage": {
                 "instanceID": 0
