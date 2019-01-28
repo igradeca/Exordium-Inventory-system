@@ -6,47 +6,47 @@ using UnityEngine.EventSystems;
 public class EquipmentCellInteraction : ItemCell, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
     // Debug.Log("");
 
-    public AttrAndCharUtils.ItemType cellItemType;
+    public AttrAndCharUtils.ItemType CellItemType;
 
     public void OnPointerClick(PointerEventData eventData) {
 
-        if (!CursorItemHolder.instance.CursorHolderIsEmpty() && CursorItemHolder.instance.holdingItemData.itemType != cellItemType) {
+        if (!CursorItemHolder.Instance.CursorHolderIsEmpty() && CursorItemHolder.Instance.HoldingItemData.ItemType != CellItemType) {
             return;
         }
 
-        OnLeftMouseClick(eventData);
+        _onLeftMouseClick(eventData);
 
         if (eventData.button == PointerEventData.InputButton.Right) {
             if (!this.IsEmpty()) {
-                Inventory.instance.AddAndUpdateGrid(cellItemData, true);
-                Equipment.instance.RemoveAndUpdateGrid(cellItemType);
+                Inventory.Instance.AddAndUpdateGrid(CellItemData, true);
+                Equipment.Instance.RemoveAndUpdateGrid(CellItemType);
             }            
         }
     }
 
-    private void OnLeftMouseClick(PointerEventData eventData) {
+    private void _onLeftMouseClick(PointerEventData eventData) {
 
-        if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
+        if (eventData.button == PointerEventData.InputButton.Left && UIManager.Instance.LeftControlKeyPressed) {
             if (!this.IsEmpty()) {
-                ItemSpawnerScript.instance.Spawn(cellItemData, GameMasterScript.instance.player.transform.position);
-                Equipment.instance.RemoveAndUpdateGrid(cellItemType);
+                ItemSpawnerScript.Instance.Spawn(CellItemData, GameMasterScript.Instance.Player.transform.position);
+                Equipment.Instance.RemoveAndUpdateGrid(CellItemType);
             }
         } else if (eventData.button == PointerEventData.InputButton.Left) {
             if (!this.IsEmpty()) {
-                if (CursorItemHolder.instance.CursorHolderIsEmpty()) {
-                    CursorItemHolder.instance.AddItemDataToCursor(cellItemData);
-                    Equipment.instance.RemoveAndUpdateGrid(cellItemData.itemType);
+                if (CursorItemHolder.Instance.CursorHolderIsEmpty()) {
+                    CursorItemHolder.Instance.AddItemDataToCursor(CellItemData);
+                    Equipment.Instance.RemoveAndUpdateGrid(CellItemData.ItemType);
                     Debug.Log("cell is full, cursor is empty.");
                 } else {
-                    Equipment.instance.Add(CursorItemHolder.instance.holdingItemData);
-                    CursorItemHolder.instance.AddItemDataToCursor(cellItemData);
-                    Equipment.instance.UpdateEquipmentGrid();
+                    Equipment.Instance.Add(CursorItemHolder.Instance.HoldingItemData);
+                    CursorItemHolder.Instance.AddItemDataToCursor(CellItemData);
+                    Equipment.Instance.UpdateEquipmentGrid();
                     Debug.Log("cell is full, cursor is full.");
                 }
             } else {
-                if (!CursorItemHolder.instance.CursorHolderIsEmpty()) {
-                    Equipment.instance.AddAndUpdateGrid(CursorItemHolder.instance.holdingItemData);
-                    CursorItemHolder.instance.EmptyItemData();
+                if (!CursorItemHolder.Instance.CursorHolderIsEmpty()) {
+                    Equipment.Instance.AddAndUpdateGrid(CursorItemHolder.Instance.HoldingItemData);
+                    CursorItemHolder.Instance.EmptyItemData();
                     Debug.Log("cell is empty, cursor is full.");
                 }
             }
@@ -56,13 +56,13 @@ public class EquipmentCellInteraction : ItemCell, IPointerClickHandler, IPointer
     public void OnPointerEnter(PointerEventData eventData) {
 
         if (!this.IsEmpty()) {
-            UIManager.instance.ShowTooltip(transform.position, cellItemData);
+            UIManager.Instance.ShowTooltip(transform.position, CellItemData);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
 
-        UIManager.instance.HideTooltip();
+        UIManager.Instance.HideTooltip();
     }
 
 

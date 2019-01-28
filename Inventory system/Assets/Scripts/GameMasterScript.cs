@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class GameMasterScript : MonoBehaviour {
 
-    public static GameMasterScript instance;
-    public GameObject player;
+    public static GameMasterScript Instance;
+    public GameObject Player;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("GameMasterScript instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 }

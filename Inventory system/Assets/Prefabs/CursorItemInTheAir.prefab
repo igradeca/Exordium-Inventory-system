@@ -89,23 +89,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6bd44e6704d9b4dafe912d5f32a2b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCanvas: {fileID: 0}
-  cursorImage: {fileID: 114616146126280192}
-  stackingBackground: {fileID: 1476019476323474}
-  stackingText: {fileID: 114939644441479216}
-  holdingItemData:
-    name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 100
-    currentDurability: 100
-    maxStack: 1
-    currentStack: 1
-  itemIsFromInventory: 0
+  MainCanvas: {fileID: 0}
+  CursorImage: {fileID: 114616146126280192}
+  StackingBackground: {fileID: 1476019476323474}
+  StackingText: {fileID: 114939644441479216}
+  HoldingItemData:
+    Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 100
+    CurrentDurability: 100
+    MaxStack: 1
+    CurrentStack: 1
+  ItemIsFromInventory: 0
 --- !u!114 &114537003227390284
 MonoBehaviour:
   m_ObjectHideFlags: 1

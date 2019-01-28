@@ -5,33 +5,33 @@ using UnityEngine;
 [System.Serializable]
 public class PickupAbleItemData : ItemData {
 
-    public int itemId = 0;
+    public int ItemId = 0;
 
-	public int maxDurability = 100;
-    public int currentDurability = 100;
+	public int MaxDurability = 100;
+    public int CurrentDurability = 100;
 
-    public int maxStack = 1;
-    public int currentStack = 1;
+    public int MaxStack = 1;
+    public int CurrentStack = 1;
     
     public PickupAbleItemData() {}
     
     public PickupAbleItemData(PickupAbleItemData data, int newItemId) {
 
-        this.itemId = newItemId;
+        this.ItemId = newItemId;
 
-        this.name = data.name;
-        this.itemType = data.itemType;
+        this.Name = data.Name;
+        this.ItemType = data.ItemType;
 
-        this.itemImageName = data.itemImageName;
-        this.itemImage = data.itemImage;
+        this.ItemImageName = data.ItemImageName;
+        this.ItemImage = data.ItemImage;
 
-        this.maxDurability = data.maxDurability;
-        this.currentDurability = data.currentDurability;
+        this.MaxDurability = data.MaxDurability;
+        this.CurrentDurability = data.CurrentDurability;
 
-        this.maxStack = data.maxStack;
-        this.currentStack = data.currentStack;
+        this.MaxStack = data.MaxStack;
+        this.CurrentStack = data.CurrentStack;
 
-        this.attributes = data.attributes;
+        this.Attributes = data.Attributes;
     }
 
 

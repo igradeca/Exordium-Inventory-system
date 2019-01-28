@@ -6,66 +6,61 @@ using UnityEngine.UI;
 
 public class Attributes : MonoBehaviour {
 
-    public static Attributes instance;
+    public static Attributes Instance;
 
-    public GameObject attributesPanel;
+    public GameObject AttributesPanel;
     public GameObject AttributesInnerPanel;
-    public GameObject attributesButton;
+    public GameObject AttributesButton;
 
     public Text HealthAndManaText;
     public Text StatsText;
 
-    public Attribute[] baseStats;
-    public Attribute[] currentStats;
+    public Attribute[] BaseStats;
+    public Attribute[] CurrentStats;
 
-    public List<Buff> activeBuffs;
+    public List<Buff> ActiveBuffs;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("Attributes instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
     // Use this for initialization
     void Start() {
 
-        baseStats = new Attribute[6];
-        for (int i = 0; i < baseStats.Length; i++) {
+        BaseStats = new Attribute[6];
+        for (int i = 0; i < BaseStats.Length; i++) {
             int rndVal = UnityEngine.Random.Range(10, 25);
-            baseStats[i] = new Attribute((AttrAndCharUtils.AttributeType)i, rndVal);            
+            BaseStats[i] = new Attribute((AttrAndCharUtils.AttributeType)i, rndVal);            
         }
 
-        ResetStats();
+        _resetStats();
     }
 
-    private void Update() {
+    private void _resetStats() {
 
-        
-    }
-
-    private void ResetStats() {
-
-        currentStats = new Attribute[6];
-        for (int i = 0; i < currentStats.Length; i++) {
-            currentStats[i] = baseStats[i];
+        CurrentStats = new Attribute[6];
+        for (int i = 0; i < CurrentStats.Length; i++) {
+            CurrentStats[i] = BaseStats[i];
         }
     }
 
-    private void BuffManager() {
+    private void _buffManager() {
 
-        if (activeBuffs.Count == 0) {
+        if (ActiveBuffs.Count == 0) {
             return;
         } else {
             InvokeRepeating("ApplyBuffs", 0f, 1f);
-            ApplyBuffs();
+            _applyBuffs();
         }
     }
 
-    private void ApplyBuffs() {
+    private void _applyBuffs() {
 
         //Invoke()
         //CancelInvoke()
@@ -74,8 +69,8 @@ public class Attributes : MonoBehaviour {
     public void AddNewBuffs(Buff[] buffs) {
 
         for (int i = 0; i < buffs.Length; i++) {
-            if (buffs[i].effect == AttrAndCharUtils.BuffType.Constant) {
-                currentStats[(int)buffs[i].attribute].value += buffs[i].value;
+            if (buffs[i].Effect == AttrAndCharUtils.BuffType.Constant) {
+                CurrentStats[(int)buffs[i].AttributeType].Value += buffs[i].Value;
             } else {
                 // buffs with duration
             }
@@ -85,9 +80,9 @@ public class Attributes : MonoBehaviour {
     public void UpdateEquippedBuffs(PickupAbleItemData[] equipedItems) {
 
         for (int i = 0; i < equipedItems.Length; i++) {
-            if (equipedItems[i] != null && equipedItems[i].itemId != 0) {
-                if (equipedItems[i].attributes.Length > 0) {
-                    AddNewBuffs(equipedItems[i].attributes);
+            if (equipedItems[i] != null && equipedItems[i].ItemId != 0) {
+                if (equipedItems[i].Attributes.Length > 0) {
+                    AddNewBuffs(equipedItems[i].Attributes);
                 }
             }
         }
@@ -97,19 +92,19 @@ public class Attributes : MonoBehaviour {
 
     public void UpdateAttributePanel() {
 
-        if (attributesPanel.activeSelf == false) {
+        if (AttributesPanel.activeSelf == false) {
             return;
         }
 
         string textToAdd = "";
-        for (int i = 0; i < (currentStats.Length - 2); i++) {
-            textToAdd += currentStats[i].attribute.ToString() + " " + currentStats[i].value + "\n";
+        for (int i = 0; i < (CurrentStats.Length - 2); i++) {
+            textToAdd += CurrentStats[i].AttributeType.ToString() + " " + CurrentStats[i].Value + "\n";
         }
         StatsText.text = textToAdd;
 
         textToAdd = "";
-        for (int i = (currentStats.Length - 2); i < currentStats.Length; i++) {
-            textToAdd += currentStats[i].attribute.ToString() + " " + currentStats[i].value + "\n";
+        for (int i = (CurrentStats.Length - 2); i < CurrentStats.Length; i++) {
+            textToAdd += CurrentStats[i].AttributeType.ToString() + " " + CurrentStats[i].Value + "\n";
         }
         HealthAndManaText.text = textToAdd;
     }
@@ -117,13 +112,13 @@ public class Attributes : MonoBehaviour {
 
     public void ShowPanel() {
 
-        if (attributesPanel.activeSelf == true) {
-            attributesPanel.SetActive(false);
-            attributesButton.SetActive(true);
-            UIManager.instance.PanelsClosed();
+        if (AttributesPanel.activeSelf == true) {
+            AttributesPanel.SetActive(false);
+            AttributesButton.SetActive(true);
+            UIManager.Instance.PanelsClosed();
         } else {
-            attributesPanel.SetActive(true);
-            attributesButton.SetActive(false);
+            AttributesPanel.SetActive(true);
+            AttributesButton.SetActive(false);
             UpdateAttributePanel();
         }
     }

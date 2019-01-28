@@ -1,258 +1,258 @@
 {
     "Items": [
         {
-            "name": "Wizard's Hat",
-            "itemType": 0,
-            "itemImageName": "ItemsSprite_19",
-            "itemImage": {
+            "Name": "Wizard's Hat",
+            "ItemType": 0,
+            "ItemImageName": "ItemsSprite_19",
+            "ItemImage": {
                 "instanceID": 11572
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 3,
-                    "value": 5.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 3,
+                    "Value": 5.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 },
                 {
-                    "attribute": 5,
-                    "value": 20.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 5,
+                    "Value": 20.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 100,
-            "currentDurability": 100,
-            "maxStack": 1,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 100,
+            "CurrentDurability": 100,
+            "MaxStack": 1,
+            "CurrentStack": 1
         },
         {
-            "name": "Viper Eye",
-            "itemType": 6,
-            "itemImageName": "ItemsSprite_52",
-            "itemImage": {
+            "Name": "Viper Eye",
+            "ItemType": 6,
+            "ItemImageName": "ItemsSprite_52",
+            "ItemImage": {
                 "instanceID": 11638
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [],
-            "itemId": 0,
-            "maxDurability": 1,
-            "currentDurability": 1,
-            "maxStack": 5,
-            "currentStack": 1
+            "Attributes": [],
+            "ItemId": 0,
+            "MaxDurability": 1,
+            "CurrentDurability": 1,
+            "MaxStack": 5,
+            "CurrentStack": 1
         },
         {
-            "name": "Beer",
-            "itemType": 5,
-            "itemImageName": "ItemsSprite_5",
-            "itemImage": {
+            "Name": "Beer",
+            "ItemType": 5,
+            "ItemImageName": "ItemsSprite_5",
+            "ItemImage": {
                 "instanceID": 11544
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 0,
-                    "value": 15.0,
-                    "effect": 1,
-                    "startOffset": 0,
-                    "duration": 60
+                    "AttributeType": 0,
+                    "Value": 15.0,
+                    "Effect": 1,
+                    "StartOffset": 0,
+                    "Duration": 60
                 },
                 {
-                    "attribute": 0,
-                    "value": 0.0,
-                    "effect": 0,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 0,
+                    "Value": 0.0,
+                    "Effect": 0,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 1,
-            "currentDurability": 1,
-            "maxStack": 2,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 1,
+            "CurrentDurability": 1,
+            "MaxStack": 2,
+            "CurrentStack": 1
         },
         {
-            "name": "Gold",
-            "itemType": 6,
-            "itemImageName": "ItemsSprite_17",
-            "itemImage": {
+            "Name": "Gold",
+            "ItemType": 6,
+            "ItemImageName": "ItemsSprite_17",
+            "ItemImage": {
                 "instanceID": 11568
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [],
-            "itemId": 0,
-            "maxDurability": 1,
-            "currentDurability": 1,
-            "maxStack": 2147483647,
-            "currentStack": 100
+            "Attributes": [],
+            "ItemId": 0,
+            "MaxDurability": 1,
+            "CurrentDurability": 1,
+            "MaxStack": 2147483647,
+            "CurrentStack": 100
         },
         {
-            "name": "Black Leather Boots",
-            "itemType": 2,
-            "itemImageName": "ItemsSprite_43",
-            "itemImage": {
+            "Name": "Black Leather Boots",
+            "ItemType": 2,
+            "ItemImageName": "ItemsSprite_43",
+            "ItemImage": {
                 "instanceID": 11620
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 2,
-                    "value": 20.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 2,
+                    "Value": 20.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 60,
-            "currentDurability": 60,
-            "maxStack": 1,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 60,
+            "CurrentDurability": 60,
+            "MaxStack": 1,
+            "CurrentStack": 1
         },
         {
-            "name": "Fire Sword",
-            "itemType": 3,
-            "itemImageName": "ItemsSprite_47",
-            "itemImage": {
+            "Name": "Fire Sword",
+            "ItemType": 3,
+            "ItemImageName": "ItemsSprite_47",
+            "ItemImage": {
                 "instanceID": 11628
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [],
-            "itemId": 0,
-            "maxDurability": 140,
-            "currentDurability": 140,
-            "maxStack": 1,
-            "currentStack": 1
+            "Attributes": [],
+            "ItemId": 0,
+            "MaxDurability": 140,
+            "CurrentDurability": 140,
+            "MaxStack": 1,
+            "CurrentStack": 1
         },
         {
-            "name": "Mana Potion",
-            "itemType": 5,
-            "itemImageName": "ItemsSprite_26",
-            "itemImage": {
+            "Name": "Mana Potion",
+            "ItemType": 5,
+            "ItemImageName": "ItemsSprite_26",
+            "ItemImage": {
                 "instanceID": 11586
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 5,
-                    "value": 0.10000000149011612,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 5,
+                    "Value": 0.10000000149011612,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 1,
-            "currentDurability": 1,
-            "maxStack": 10,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 1,
+            "CurrentDurability": 1,
+            "MaxStack": 10,
+            "CurrentStack": 1
         },
         {
-            "name": "Health Potion",
-            "itemType": 5,
-            "itemImageName": "ItemsSprite_4",
-            "itemImage": {
+            "Name": "Health Potion",
+            "ItemType": 5,
+            "ItemImageName": "ItemsSprite_4",
+            "ItemImage": {
                 "instanceID": 11542
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 4,
-                    "value": 18.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 6
+                    "AttributeType": 4,
+                    "Value": 18.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 6
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 1,
-            "currentDurability": 1,
-            "maxStack": 10,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 1,
+            "CurrentDurability": 1,
+            "MaxStack": 10,
+            "CurrentStack": 1
         },
         {
-            "name": "Catarina Armor",
-            "itemType": 1,
-            "itemImageName": "ItemsSprite_27",
-            "itemImage": {
+            "Name": "Catarina Armor",
+            "ItemType": 1,
+            "ItemImageName": "ItemsSprite_27",
+            "ItemImage": {
                 "instanceID": 11588
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 4,
-                    "value": 50.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 4,
+                    "Value": 50.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 },
                 {
-                    "attribute": 0,
-                    "value": 20.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 0,
+                    "Value": 20.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 200,
-            "currentDurability": 180,
-            "maxStack": 1,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 200,
+            "CurrentDurability": 180,
+            "MaxStack": 1,
+            "CurrentStack": 1
         },
         {
-            "name": "Catarina Helm",
-            "itemType": 0,
-            "itemImageName": "ItemsSprite_35",
-            "itemImage": {
+            "Name": "Catarina Helm",
+            "ItemType": 0,
+            "ItemImageName": "ItemsSprite_35",
+            "ItemImage": {
                 "instanceID": 11604
             },
-            "backgroundImage": {
+            "BackgroundImage": {
                 "instanceID": 0
             },
-            "attributes": [
+            "Attributes": [
                 {
-                    "attribute": 1,
-                    "value": 10.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 1,
+                    "Value": 10.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 },
                 {
-                    "attribute": 0,
-                    "value": 12.0,
-                    "effect": 3,
-                    "startOffset": 0,
-                    "duration": 0
+                    "AttributeType": 0,
+                    "Value": 12.0,
+                    "Effect": 3,
+                    "StartOffset": 0,
+                    "Duration": 0
                 }
             ],
-            "itemId": 0,
-            "maxDurability": 150,
-            "currentDurability": 150,
-            "maxStack": 1,
-            "currentStack": 1
+            "ItemId": 0,
+            "MaxDurability": 150,
+            "CurrentDurability": 150,
+            "MaxStack": 1,
+            "CurrentStack": 1
         }
     ]
 }

@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class ItemData {
 
-    public string name;
-    public AttrAndCharUtils.ItemType itemType;
+    public string Name;
+    public AttrAndCharUtils.ItemType ItemType;
 
-    public string itemImageName;
-    public Sprite itemImage;
-    public Sprite backgroundImage;
+    public string ItemImageName;
+    public Sprite ItemImage;
+    public Sprite BackgroundImage;
 
-    public Buff[] attributes;
+    public Buff[] Attributes;
 }

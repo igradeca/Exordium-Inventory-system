@@ -161,22 +161,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c038673b5501a24cb47bbaf6d1bc8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stackStatus: {fileID: 114045361379751804}
-  cellImage: {fileID: 114397188708768894}
-  backGroundImage: {fileID: 114011045024678936}
-  itemData:
-    name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 100
-    currentDurability: 100
-    maxStack: 1
-    currentStack: 1
-  itemIndex: 0
+  StackStatus: {fileID: 114045361379751804}
+  CellImage: {fileID: 114397188708768894}
+  BackGroundImage: {fileID: 114011045024678936}
+  CellItemData:
+    Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 100
+    CurrentDurability: 100
+    MaxStack: 1
+    CurrentStack: 1
 --- !u!222 &222319363319884554
 CanvasRenderer:
   m_ObjectHideFlags: 1

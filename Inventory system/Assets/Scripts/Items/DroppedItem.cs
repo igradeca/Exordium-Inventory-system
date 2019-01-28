@@ -7,37 +7,37 @@ using UnityEngine;
 /// </summary>
 public class DroppedItem : ItemInteraction {
 
-    public PickupAbleItemData itemData;
+    public PickupAbleItemData ItemData;
 
-    public int itemId;
-    public SpriteRenderer spriteRenderer;
+    public int ItemId;
+    public SpriteRenderer SpriteRenderer;
 
     public void FillItemData(PickupAbleItemData serializedData, int newItemId) {
 
-        itemId = newItemId;
-        itemData = new PickupAbleItemData(serializedData, itemId);
-        spriteRenderer.sprite = itemData.itemImage;
+        ItemId = newItemId;
+        ItemData = new PickupAbleItemData(serializedData, ItemId);
+        SpriteRenderer.sprite = ItemData.ItemImage;
     }
 
     public override void Interact() {
 
-        PickUp();
+        _pickUp();
         base.Interact();
     }
 
-    private void PickUp() {
+    private void _pickUp() {
 
-        if (ItemToEquip()) {
-            Equipment.instance.Add(itemData);
+        if (_itemToEquip()) {
+            Equipment.Instance.Add(ItemData);
         } else {
-            Inventory.instance.Add(itemData, false);
+            Inventory.Instance.Add(ItemData, false);
         }
         Destroy(gameObject);
     }
 
-    private bool ItemToEquip() {
+    private bool _itemToEquip() {
 
-        if ((int)itemData.itemType < 4 && Equipment.instance.IsSlotEmpty(itemData.itemType)) {
+        if ((int)ItemData.ItemType < 4 && Equipment.Instance.IsSlotEmpty(ItemData.ItemType)) {
             return true;
         } else {
             return false;

@@ -54,59 +54,59 @@ public static class AttrAndCharUtils {
 [System.Serializable]
 public class Attribute {
 
-    public AttrAndCharUtils.AttributeType attribute;
+    public AttrAndCharUtils.AttributeType AttributeType;
 
-    public float value = 0;
+    public float Value = 0;
 
     public Attribute() { }
 
     public Attribute(AttrAndCharUtils.AttributeType attribute, float value) {
 
-        this.attribute = attribute;
-        this.value = value;
+        this.AttributeType = attribute;
+        this.Value = value;
     } 
 }
 
 [System.Serializable]
 public class Buff : Attribute {
 
-    public AttrAndCharUtils.BuffType effect;
+    public AttrAndCharUtils.BuffType Effect;
     
     /// <summary>
     /// In seconds.
     /// </summary>
-    public int startOffset = 0;
+    public int StartOffset = 0;
     /// <summary>
     /// In seconds.
     /// </summary>
-    public int duration = 0;
+    public int Duration = 0;
 
     public delegate float ApplyBuff(int elapsedTime);
-    public ApplyBuff apply;
+    public ApplyBuff Apply;
 
     public Buff(AttrAndCharUtils.BuffType effect, AttrAndCharUtils.AttributeType attribute, float value, int duration, int startOffset) {
 
-        this.effect = effect;
+        this.Effect = effect;
 
         switch (effect) {
             case AttrAndCharUtils.BuffType.Constant:
-                apply = ConstantEffect;
+                Apply = _constantEffect;
                 break;
             case AttrAndCharUtils.BuffType.HoldBonus:
-                apply = HoldBonusEffect;
+                Apply = _holdBonusEffect;
                 break;
             case AttrAndCharUtils.BuffType.Ramp:
-                apply = RampEffect;
+                Apply = _rampEffect;
                 break;
             case AttrAndCharUtils.BuffType.Change:
-                apply = ChangeEffect;
+                Apply = _changeEffect;
                 break;
         }
 
-        this.attribute = attribute;
-        this.value = value;
-        this.duration = duration;
-        this.startOffset = startOffset;
+        this.AttributeType = attribute;
+        this.Value = value;
+        this.Duration = duration;
+        this.StartOffset = startOffset;
     }
 
     public Buff(AttrAndCharUtils.AttributeType attribute, float value) : 
@@ -115,41 +115,41 @@ public class Buff : Attribute {
     public Buff(AttrAndCharUtils.BuffType effect, AttrAndCharUtils.AttributeType attribute, float value, int duration) : 
         this(effect, attribute, value, duration, 0) { }
 
-    private float ConstantEffect(int elapsedTime = 0) {
+    private float _constantEffect(int elapsedTime = 0) {
 
-        return value;
+        return Value;
     }
 
-    private float HoldBonusEffect(int elapsedTime) {
+    private float _holdBonusEffect(int elapsedTime) {
 
-        if (elapsedTime < startOffset) {
+        if (elapsedTime < StartOffset) {
             return 0f;
-        } else if ((startOffset + elapsedTime) < (startOffset + duration)) {
-            return value;
+        } else if ((StartOffset + elapsedTime) < (StartOffset + Duration)) {
+            return Value;
         } else {
             return 0f;
         }
     }
 
-    private float RampEffect(int elapsedTime) {
+    private float _rampEffect(int elapsedTime) {
 
-        if (elapsedTime < startOffset) {
+        if (elapsedTime < StartOffset) {
             return 0f;
-        } else if ((startOffset + elapsedTime) < (startOffset + duration)) {
-            float t = (elapsedTime - startOffset) / duration;
-            return Mathf.Lerp(0, value, t);
+        } else if ((StartOffset + elapsedTime) < (StartOffset + Duration)) {
+            float t = (elapsedTime - StartOffset) / Duration;
+            return Mathf.Lerp(0, Value, t);
         } else {
             return 0f;
         }
     }
 
-    private float ChangeEffect(int elapsedTime) {
+    private float _changeEffect(int elapsedTime) {
 
-        float res = value / duration;
+        float res = Value / Duration;
 
-        if (elapsedTime < startOffset) {
+        if (elapsedTime < StartOffset) {
             return 0f;
-        } else if ((startOffset + elapsedTime) < (startOffset + duration)) {
+        } else if ((StartOffset + elapsedTime) < (StartOffset + Duration)) {
             return res;
         } else {
             return 0f;

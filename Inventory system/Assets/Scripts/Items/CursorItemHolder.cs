@@ -7,26 +7,26 @@ using UnityEngine.UI;
 
 public class CursorItemHolder : MonoBehaviour {
 
-    public static CursorItemHolder instance;
+    public static CursorItemHolder Instance;
 
-    public Canvas mainCanvas;
-    public Image cursorImage;
-    public GameObject stackingBackground;
-    public Text stackingText;
+    public Canvas MainCanvas;
+    public Image CursorImage;
+    public GameObject StackingBackground;
+    public Text StackingText;
 
-    public PickupAbleItemData holdingItemData;
-    public bool itemIsFromInventory;
+    public PickupAbleItemData HoldingItemData;
+    public bool ItemIsFromInventory;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("MouseCursor instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
 
-        holdingItemData = null;
+        HoldingItemData = null;
     }
 
     // Update is called once per frame
@@ -35,56 +35,56 @@ public class CursorItemHolder : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             if (!EventSystem.current.IsPointerOverGameObject()) {
                 if (!CursorHolderIsEmpty()) {
-                    ItemSpawnerScript.instance.Spawn(holdingItemData);
-                    Debug.Log(holdingItemData.name + " spawned from cursor holder.");
+                    ItemSpawnerScript.Instance.Spawn(HoldingItemData);
+                    Debug.Log(HoldingItemData.Name + " spawned from cursor holder.");
                     EmptyItemData();
                 }
             }
         }
 
         // Follow cursor
-        if (holdingItemData != null) {
+        if (HoldingItemData != null) {
 
             Vector2 pos;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                mainCanvas.transform as RectTransform,
+                MainCanvas.transform as RectTransform,
                 Input.mousePosition,
-                mainCanvas.worldCamera,
+                MainCanvas.worldCamera,
                 out pos);
 
-            transform.position = mainCanvas.transform.TransformPoint(pos) + new Vector3(20f, -25f, 0f);
+            transform.position = MainCanvas.transform.TransformPoint(pos) + new Vector3(20f, -25f, 0f);
         }
     }
 
     public void AddItemDataToCursor(PickupAbleItemData itemData) {
 
-        holdingItemData = itemData;
+        HoldingItemData = itemData;
 
-        UpdateCursor();
+        _updateCursor();
     }
 
-    private void UpdateCursor() {
+    private void _updateCursor() {
 
-        string stackInfo = UpdateStackInfo();
+        string stackInfo = _updateStackInfo();
         if (stackInfo != "") {
-            stackingBackground.SetActive(true);
-            stackingText.text = stackInfo;
+            StackingBackground.SetActive(true);
+            StackingText.text = stackInfo;
         } else {
-            stackingBackground.SetActive(false);
+            StackingBackground.SetActive(false);
         }
 
-        cursorImage.sprite = holdingItemData.itemImage;
+        CursorImage.sprite = HoldingItemData.ItemImage;
 
         ShowCursorItem();
     }
 
-    private string UpdateStackInfo() {
+    private string _updateStackInfo() {
 
         string stackText = "";
-        if (holdingItemData.maxStack == int.MaxValue) {
-            stackText = holdingItemData.currentStack.ToString();
-        } else if (holdingItemData.maxStack > 1) {
-            stackText = holdingItemData.currentStack.ToString() + "/" + holdingItemData.maxStack.ToString();
+        if (HoldingItemData.MaxStack == int.MaxValue) {
+            stackText = HoldingItemData.CurrentStack.ToString();
+        } else if (HoldingItemData.MaxStack > 1) {
+            stackText = HoldingItemData.CurrentStack.ToString() + "/" + HoldingItemData.MaxStack.ToString();
         }
 
         return stackText;
@@ -92,29 +92,29 @@ public class CursorItemHolder : MonoBehaviour {
 
     public void EmptyItemData() {
 
-        cursorImage.sprite = null;
-        stackingText.text = "";
-        holdingItemData = null;
+        CursorImage.sprite = null;
+        StackingText.text = "";
+        HoldingItemData = null;
 
         HideCursorItem();
     }
 
     public void ShowCursorItem() {
 
-        cursorImage.gameObject.SetActive(true);
+        CursorImage.gameObject.SetActive(true);
     }
 
     public void HideCursorItem() {
 
-        cursorImage.gameObject.SetActive(false);
-        stackingBackground.gameObject.SetActive(false);
+        CursorImage.gameObject.SetActive(false);
+        StackingBackground.gameObject.SetActive(false);
     }
 
     public bool CursorHolderIsEmpty() {
 
-        if (holdingItemData == null) {
+        if (HoldingItemData == null) {
             return true;
-        } else if (holdingItemData.itemId == 0) {
+        } else if (HoldingItemData.ItemId == 0) {
             return true;
         } else {
             return false;

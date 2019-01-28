@@ -5,22 +5,22 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour {
 
-    public static UIManager instance;
+    public static UIManager Instance;
 
-    public GameObject tooltip;
-    public GameObject splitPanel;
-    public GameObject cursorItemInTheAir;
+    public GameObject Tooltip;
+    public GameObject SplitPanel;
+    public GameObject CursorItemInTheAir;
 
-    public bool leftControlKeyPressed;
-    public bool leftShiftKeyPressed;
+    public bool LeftControlKeyPressed;
+    public bool LeftShiftKeyPressed;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("UIManager instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
@@ -32,47 +32,47 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.C)) {
-            Attributes.instance.ShowPanel();
+            Attributes.Instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            Equipment.instance.ShowPanel();
+            Equipment.Instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.I)) {
-            Inventory.instance.ShowPanel();
+            Inventory.Instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftControl)) {
-            leftControlKeyPressed = true;
+            LeftControlKeyPressed = true;
         } else if (Input.GetKeyUp(KeyCode.LeftControl)) {
-            leftControlKeyPressed = false;
+            LeftControlKeyPressed = false;
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
-            leftShiftKeyPressed = true;
+            LeftShiftKeyPressed = true;
         } else if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            leftShiftKeyPressed = false;
+            LeftShiftKeyPressed = false;
         }
     }
 
     public void PanelsClosed() {
 
-        if (AllPanelsAreClosed()) {
-            if (cursorItemInTheAir.activeSelf) {
-                CursorItemHolder.instance.EmptyItemData();
+        if (_allPanelsAreClosed()) {
+            if (CursorItemInTheAir.activeSelf) {
+                CursorItemHolder.Instance.EmptyItemData();
             }
-            if (tooltip.activeSelf) {
+            if (Tooltip.activeSelf) {
                 HideTooltip();
             }
         }
     }
 
-    private bool AllPanelsAreClosed() {
+    private bool _allPanelsAreClosed() {
 
-        if (!Attributes.instance.attributesPanel.activeSelf && 
-            !Equipment.instance.equipmentPanel.activeSelf && 
-            !Inventory.instance.inventoryPanel.activeSelf) {
+        if (!Attributes.Instance.AttributesPanel.activeSelf && 
+            !Equipment.Instance.EquipmentPanel.activeSelf && 
+            !Inventory.Instance.InventoryPanel.activeSelf) {
             return true;
         } else {
             return false;
@@ -81,18 +81,18 @@ public class UIManager : MonoBehaviour {
 
     public void ShowTooltip(Vector2 position, PickupAbleItemData itemData) {
 
-        tooltip.SetActive(true);
-        tooltip.transform.position = position + new Vector2(-16f, 16f);
+        Tooltip.SetActive(true);
+        Tooltip.transform.position = position + new Vector2(-16f, 16f);
 
-        string textToDisplay = itemData.name + "\n" +
-            " Type: " + itemData.itemType.ToString();
-        textToDisplay += AddAttributesStringToTooltip(itemData.attributes);
-        textToDisplay += AddDurabilityStringToTooltip(itemData.currentDurability, itemData.maxDurability);
+        string textToDisplay = itemData.Name + "\n" +
+            " Type: " + itemData.ItemType.ToString();
+        textToDisplay += _addAttributesStringToTooltip(itemData.Attributes);
+        textToDisplay += _addDurabilityStringToTooltip(itemData.CurrentDurability, itemData.MaxDurability);
 
-        tooltip.transform.GetChild(0).GetComponent<Text>().text = textToDisplay;
+        Tooltip.transform.GetChild(0).GetComponent<Text>().text = textToDisplay;
     }
 
-    private string AddAttributesStringToTooltip(Attribute[] attributes) {
+    private string _addAttributesStringToTooltip(Attribute[] attributes) {
 
         string attributesDisplay = "";
 
@@ -102,7 +102,7 @@ public class UIManager : MonoBehaviour {
 
         for (int i = 0; i < attributes.Length; i++) {
 
-            attributesDisplay += "\n " + attributes[i].attribute.ToString() + " ";
+            attributesDisplay += "\n " + attributes[i].AttributeType.ToString() + " ";
             /*
             if (attributes[i].value != 0) {
                 attributesDisplay += (attributes[i].value > 0) ? "+" : "";
@@ -121,7 +121,7 @@ public class UIManager : MonoBehaviour {
         return attributesDisplay;
     }
 
-    private string AddDurabilityStringToTooltip(int currentDurability, int maxDurability) {
+    private string _addDurabilityStringToTooltip(int currentDurability, int maxDurability) {
 
         string durabilityDisplay = "";
 
@@ -134,17 +134,17 @@ public class UIManager : MonoBehaviour {
 
     public void HideTooltip() {
 
-        tooltip.SetActive(false);
+        Tooltip.SetActive(false);
     }
 
     public void ShowSplitPanel() {
 
-        splitPanel.SetActive(true);
+        SplitPanel.SetActive(true);
     }
 
     public void HideSplitPanel() {
 
-        splitPanel.SetActive(false);
+        SplitPanel.SetActive(false);
     }   
 
 

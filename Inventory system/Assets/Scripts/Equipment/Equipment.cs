@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Equipment : MonoBehaviour {
 
-    public static Equipment instance;
+    public static Equipment Instance;
 
-    public GameObject equipmentPanel;
-    public GameObject equipmentUIList;
-    public GameObject equipmentButton;
+    public GameObject EquipmentPanel;
+    public GameObject EquipmentUIList;
+    public GameObject EquipmentButton;
 
-    public PickupAbleItemData[] equipedItems;
+    public PickupAbleItemData[] EquipedItems;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("Equipment instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
@@ -32,23 +32,23 @@ public class Equipment : MonoBehaviour {
 
         Add(item);
         UpdateEquipmentGrid();
-        Attributes.instance.UpdateEquippedBuffs(equipedItems);
+        Attributes.Instance.UpdateEquippedBuffs(EquipedItems);
     }
 
     public void Add(PickupAbleItemData itemData) {
 
-        switch (itemData.itemType) {
+        switch (itemData.ItemType) {
             case AttrAndCharUtils.ItemType.Head:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Head] = itemData;
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Head] = itemData;
                 break;
             case AttrAndCharUtils.ItemType.Armor:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Armor] = itemData;
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Armor] = itemData;
                 break;
             case AttrAndCharUtils.ItemType.Boots:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Boots] = itemData;
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Boots] = itemData;
                 break;
             case AttrAndCharUtils.ItemType.Weapon:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Weapon] = itemData;
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Weapon] = itemData;
                 break;
         }
     }
@@ -57,39 +57,39 @@ public class Equipment : MonoBehaviour {
 
         switch (itemType) {
             case AttrAndCharUtils.ItemType.Head:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Head] = new PickupAbleItemData();
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Head] = new PickupAbleItemData();
                 break;
             case AttrAndCharUtils.ItemType.Armor:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Armor] = new PickupAbleItemData();
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Armor] = new PickupAbleItemData();
                 break;
             case AttrAndCharUtils.ItemType.Boots:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Boots] = new PickupAbleItemData();
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Boots] = new PickupAbleItemData();
                 break;
             case AttrAndCharUtils.ItemType.Weapon:
-                equipedItems[(int)AttrAndCharUtils.ItemType.Weapon] = new PickupAbleItemData();
+                EquipedItems[(int)AttrAndCharUtils.ItemType.Weapon] = new PickupAbleItemData();
                 break;
         }
     }
 
     public void UpdateEquipmentGrid() {
 
-        if (equipmentPanel.activeSelf == false) {
+        if (EquipmentPanel.activeSelf == false) {
             return;
         }
 
-        ItemCell[] cells = equipmentUIList.GetComponentsInChildren<ItemCell>();
-        for (int i = 0; i < equipedItems.Length; i++) {
-            if (equipedItems[i].itemId == 0) {
+        ItemCell[] cells = EquipmentUIList.GetComponentsInChildren<ItemCell>();
+        for (int i = 0; i < EquipedItems.Length; i++) {
+            if (EquipedItems[i].ItemId == 0) {
                 cells[i].SetEmptyCell();
             } else {
-                cells[i].UpdateCell(equipedItems[i]);
+                cells[i].UpdateCell(EquipedItems[i]);
             }
         }
     }
 
     public bool IsSlotEmpty(AttrAndCharUtils.ItemType slotType) {
 
-        if (equipedItems[(int)slotType].itemId == 0) {
+        if (EquipedItems[(int)slotType].ItemId == 0) {
             return true;
         } else {
             return false;
@@ -98,13 +98,13 @@ public class Equipment : MonoBehaviour {
 
     public void ShowPanel() {
 
-        if (equipmentPanel.activeSelf == true) {
-            equipmentPanel.SetActive(false);
-            equipmentButton.SetActive(true);
-            UIManager.instance.PanelsClosed();
+        if (EquipmentPanel.activeSelf == true) {
+            EquipmentPanel.SetActive(false);
+            EquipmentButton.SetActive(true);
+            UIManager.Instance.PanelsClosed();
         } else {
-            equipmentPanel.SetActive(true);
-            equipmentButton.SetActive(false);
+            EquipmentPanel.SetActive(true);
+            EquipmentButton.SetActive(false);
             UpdateEquipmentGrid();
         }
     }

@@ -68,19 +68,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe359ea4b5f6efb4d8bbc81751eeb776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInProximity: 0
-  itemData:
-    name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    maxDurability: 100
-    currentDurability: 100
-    maxStack: 1
-    currentStack: 1
-  id: 0
-  spriteRenderer: {fileID: 212795698955765010}
+  PlayerInProximity: 0
+  ItemData:
+    Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 100
+    CurrentDurability: 100
+    MaxStack: 1
+    CurrentStack: 1
+  ItemId: 0
+  SpriteRenderer: {fileID: 212795698955765010}
 --- !u!212 &212795698955765010
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,35 +5,35 @@ using UnityEngine.EventSystems;
 
 public class ItemInteraction : MonoBehaviour {
 
-    public bool playerInProximity;
+    public bool PlayerInProximity;
 
 	// Use this for initialization
 	void Start () {
                 
-        playerInProximity = false;
+        PlayerInProximity = false;
     }
     
     void OnMouseDown() {
 
-        if (Input.GetMouseButtonDown(0) && playerInProximity == true) {
+        if (Input.GetMouseButtonDown(0) && PlayerInProximity == true) {
             Interact();
         }
     }
 
     public virtual void Interact() {
 
-        Inventory.instance.UpdateInventoryGrid();
+        Inventory.Instance.UpdateInventoryGrid();
     }
 
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            playerInProximity = true;
+            PlayerInProximity = true;
         }
     }
 
     void OnTriggerExit2D(Collider2D collision) {
         if (collision.tag == "Player") {
-            playerInProximity = false;
+            PlayerInProximity = false;
         }
     }
 

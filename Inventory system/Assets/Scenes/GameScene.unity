@@ -388,11 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff0b028fe774db4488573540525230c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltip: {fileID: 1222404669}
-  splitPanel: {fileID: 506859259}
-  cursorItemInTheAir: {fileID: 1328182502}
-  leftControlKeyPressed: 0
-  leftShiftKeyPressed: 0
+  Tooltip: {fileID: 1222404669}
+  SplitPanel: {fileID: 506859259}
+  CursorItemInTheAir: {fileID: 1328182502}
+  LeftControlKeyPressed: 0
+  LeftShiftKeyPressed: 0
 --- !u!1 &254793807
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +837,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114483353048612416, guid: 7dceb38195a80054f83841eff1860ddf,
         type: 2}
-      propertyPath: mainCanvas
+      propertyPath: MainCanvas
       value: 
       objectReference: {fileID: 149081070}
     m_RemovedComponents: []
@@ -2254,11 +2254,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3a5bf7e5801134da701b217f6cb1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemTexture: {fileID: 2800000, guid: a76f400f849a3d246a9c80aa803a4c15, type: 3}
-  sprites: []
-  itemsToSpawn: 5
-  items: []
-  itemPrefab: {fileID: 1699264892115956, guid: 0eedaa6d16702734ab61121e9ef0f309, type: 2}
+  ItemTexture: {fileID: 2800000, guid: a76f400f849a3d246a9c80aa803a4c15, type: 3}
+  Sprites: []
+  ItemsToSpawn: 5
+  Items: []
+  ItemPrefab: {fileID: 1699264892115956, guid: 0eedaa6d16702734ab61121e9ef0f309, type: 2}
 --- !u!114 &1195310009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,7 +2270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b6356f59d9d384d90d1384739fe2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1434422556}
+  Player: {fileID: 1434422556}
 --- !u!1 &1221223146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,8 +2729,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b54ca65089e1f94c9738f321916b77b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1434422560}
-  rigidBody: {fileID: 1434422561}
+  Animator: {fileID: 1434422560}
+  RigidBody: {fileID: 1434422561}
 --- !u!212 &1434422558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2865,12 +2865,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c504cbabf868e64fae2b0a43b78222e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryPanel: {fileID: 1820714437}
-  inventoryUIList: {fileID: 352638676}
-  inventoryButton: {fileID: 616958749}
-  emptyInventoryItemCell: {fileID: 1858778185005666, guid: 47ad0e6962871114988d3deaa88026e8,
+  InventoryPanel: {fileID: 1820714437}
+  InventoryUIList: {fileID: 352638676}
+  InventoryButton: {fileID: 616958749}
+  EmptyInventoryItemCell: {fileID: 1858778185005666, guid: 47ad0e6962871114988d3deaa88026e8,
     type: 2}
-  inventoryList: []
+  InventoryList: []
 --- !u!114 &1434422564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,14 +2882,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8214753f0b128479bd1beda78dec05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attributesPanel: {fileID: 1892401117}
+  AttributesPanel: {fileID: 1892401117}
   AttributesInnerPanel: {fileID: 1418320912}
-  attributesButton: {fileID: 853570898}
+  AttributesButton: {fileID: 853570898}
   HealthAndManaText: {fileID: 1060123338}
   StatsText: {fileID: 139517066}
-  baseStats: []
-  currentStats: []
-  activeBuffs: []
+  BaseStats: []
+  CurrentStats: []
+  ActiveBuffs: []
 --- !u!114 &1434422565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2901,54 +2901,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf0dbc1aed4d2a41a50294fa8620f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentPanel: {fileID: 1092501309}
-  equipmentUIList: {fileID: 71051823}
-  equipmentButton: {fileID: 1000087536}
-  equipedItems:
-  - name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 0
-    currentDurability: 0
-    maxStack: 0
-    currentStack: 0
-  - name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 0
-    currentDurability: 0
-    maxStack: 0
-    currentStack: 0
-  - name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 0
-    currentDurability: 0
-    maxStack: 0
-    currentStack: 0
-  - name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    attributes: []
-    itemId: 0
-    maxDurability: 0
-    currentDurability: 0
-    maxStack: 0
-    currentStack: 0
+  EquipmentPanel: {fileID: 1092501309}
+  EquipmentUIList: {fileID: 71051823}
+  EquipmentButton: {fileID: 1000087536}
+  EquipedItems:
+  - Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 0
+    CurrentDurability: 0
+    MaxStack: 0
+    CurrentStack: 0
+  - Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 0
+    CurrentDurability: 0
+    MaxStack: 0
+    CurrentStack: 0
+  - Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 0
+    CurrentDurability: 0
+    MaxStack: 0
+    CurrentStack: 0
+  - Name: 
+    ItemType: 0
+    ItemImageName: 
+    ItemImage: {fileID: 0}
+    BackgroundImage: {fileID: 0}
+    Attributes: []
+    ItemId: 0
+    MaxDurability: 0
+    CurrentDurability: 0
+    MaxStack: 0
+    CurrentStack: 0
 --- !u!224 &1467298159 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224593224824584098, guid: 4a7fda297cdf7cb478906dcd1bf6bcb9,

@@ -5,32 +5,32 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 
-    public static Inventory instance;
+    public static Inventory Instance;
 
-    public readonly int gridRowLength = 5;
-    public GameObject inventoryPanel;
-    public GameObject inventoryUIList;
-    public GameObject inventoryButton;
+    public readonly int GridRowLength = 5;
+    public GameObject InventoryPanel;
+    public GameObject InventoryUIList;
+    public GameObject InventoryButton;
 
-    public GameObject emptyInventoryItemCell;
+    public GameObject EmptyInventoryItemCell;
     private GameObject _cell;
     
-    public List<PickupAbleItemData> inventoryList;
+    public List<PickupAbleItemData> InventoryList;
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("Inventory instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
     // Use this for initialization
     void Start () {
 
-        inventoryList = new List<PickupAbleItemData>();
+        InventoryList = new List<PickupAbleItemData>();
     }
 
     public void AddAndUpdateGrid(PickupAbleItemData item, bool newStack) {
@@ -41,34 +41,34 @@ public class Inventory : MonoBehaviour {
 
     public void RemoveAndUpdateGrid(PickupAbleItemData item) {
 
-        Remove(item.itemId);
+        Remove(item.ItemId);
         UpdateInventoryGrid();
     }
 
     public void Add(PickupAbleItemData itemData, bool newStack) {
 
-        if (newStack == false && (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue)) {
-            _AddToExistingElement(itemData);
+        if (newStack == false && (itemData.MaxStack >= 2 || itemData.MaxStack == int.MaxValue)) {
+            _addToExistingElement(itemData);
         }
         
-        if (itemData.currentStack > 0) {
+        if (itemData.CurrentStack > 0) {
             // If there is no such stacked item or there is some of them left, add a new one.
-            inventoryList.Add(itemData);
+            InventoryList.Add(itemData);
         }
     }
     
-    private void _AddToExistingElement(PickupAbleItemData itemData) {
+    private void _addToExistingElement(PickupAbleItemData itemData) {
 
-        for (int i = 0; i < inventoryList.Count; i++) {
-            if (inventoryList[i].name == itemData.name && 
-                (inventoryList[i].currentStack < itemData.maxStack || itemData.maxStack == int.MaxValue)) {
+        for (int i = 0; i < InventoryList.Count; i++) {
+            if (InventoryList[i].Name == itemData.Name && 
+                (InventoryList[i].CurrentStack < itemData.MaxStack || itemData.MaxStack == int.MaxValue)) {
 
-                if ((inventoryList[i].currentStack + itemData.currentStack) > itemData.maxStack && itemData.maxStack != int.MaxValue) {
-                    itemData.currentStack -= itemData.maxStack - inventoryList[i].currentStack;
-                    inventoryList[i].currentStack = itemData.maxStack;
+                if ((InventoryList[i].CurrentStack + itemData.CurrentStack) > itemData.MaxStack && itemData.MaxStack != int.MaxValue) {
+                    itemData.CurrentStack -= itemData.MaxStack - InventoryList[i].CurrentStack;
+                    InventoryList[i].CurrentStack = itemData.MaxStack;
                 } else {
-                    inventoryList[i].currentStack += itemData.currentStack;
-                    itemData.currentStack = 0;
+                    InventoryList[i].CurrentStack += itemData.CurrentStack;
+                    itemData.CurrentStack = 0;
                     return;
                 }
             }
@@ -77,69 +77,69 @@ public class Inventory : MonoBehaviour {
 
     public void Remove(int itemId) {
 
-        for (int i = 0; i < inventoryList.Count; i++) {
-            if (inventoryList[i].itemId == itemId) {
-                inventoryList.RemoveAt(i);
+        for (int i = 0; i < InventoryList.Count; i++) {
+            if (InventoryList[i].ItemId == itemId) {
+                InventoryList.RemoveAt(i);
             }
         }
     }
 
     public void UpdateInventoryGrid() {
 
-        if (inventoryPanel.activeSelf == false) {
+        if (InventoryPanel.activeSelf == false) {
             return;
         }
 
-        if (inventoryUIList.transform.childCount == 0) {
-            InstantiateNewEmptyCells(5);
+        if (InventoryUIList.transform.childCount == 0) {
+            _instantiateNewEmptyCells(5);
         }
 
-        ItemCell[] cells = inventoryUIList.GetComponentsInChildren<ItemCell>();
-        for (int i = 0; i < inventoryList.Count; i++) {
+        ItemCell[] cells = InventoryUIList.GetComponentsInChildren<ItemCell>();
+        for (int i = 0; i < InventoryList.Count; i++) {
             if (cells.Length <= i + 1) {
-                InstantiateNewEmptyCells(5);
-                cells = inventoryUIList.GetComponentsInChildren<ItemCell>();
+                _instantiateNewEmptyCells(5);
+                cells = InventoryUIList.GetComponentsInChildren<ItemCell>();
             }
-            cells[i].UpdateCell(inventoryList[i]);
+            cells[i].UpdateCell(InventoryList[i]);
         }
         
-        if (cells.Length > inventoryList.Count) {
-            for (int i = inventoryList.Count; i < cells.Length; i++) {
+        if (cells.Length > InventoryList.Count) {
+            for (int i = InventoryList.Count; i < cells.Length; i++) {
                 cells[i].SetEmptyCell();
             }
         }
 
-        if (inventoryList.Count + 5 < cells.Length && inventoryList.Count > 0) {
-            DestroyEmptyCells(5);
+        if (InventoryList.Count + 5 < cells.Length && InventoryList.Count > 0) {
+            _destroyEmptyCells(5);
         }
 
     }
 
-    private void InstantiateNewEmptyCells(int cellsNumber = 1) {
+    private void _instantiateNewEmptyCells(int cellsNumber = 1) {
 
         for (int i = 0; i < cellsNumber; i++) {
-            _cell = Instantiate(emptyInventoryItemCell, inventoryUIList.transform, false);
+            _cell = Instantiate(EmptyInventoryItemCell, InventoryUIList.transform, false);
             _cell.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
     }
 
-    private void DestroyEmptyCells(int cellsNumber) {
+    private void _destroyEmptyCells(int cellsNumber) {
 
-        int cellsCount = inventoryUIList.transform.childCount;
+        int cellsCount = InventoryUIList.transform.childCount;
         for (int i = (cellsCount - 1), j = cellsNumber; i >= 0 && j > 0; i--, j--) {
-            Destroy(inventoryUIList.transform.GetChild(i).gameObject);
+            Destroy(InventoryUIList.transform.GetChild(i).gameObject);
         }
     }
 
     public void ShowPanel() {
 
-        if (inventoryPanel.activeSelf == true) {
-            inventoryPanel.SetActive(false);
-            inventoryButton.SetActive(true);
-            UIManager.instance.PanelsClosed();
+        if (InventoryPanel.activeSelf == true) {
+            InventoryPanel.SetActive(false);
+            InventoryButton.SetActive(true);
+            UIManager.Instance.PanelsClosed();
         } else {
-            inventoryPanel.SetActive(true);
-            inventoryButton.SetActive(false);
+            InventoryPanel.SetActive(true);
+            InventoryButton.SetActive(false);
             UpdateInventoryGrid();
         }
     }

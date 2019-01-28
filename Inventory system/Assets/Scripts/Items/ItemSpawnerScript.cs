@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class ItemSpawnerScript : MonoBehaviour {
 
-    public static ItemSpawnerScript instance;
+    public static ItemSpawnerScript Instance;
 
-    public Texture2D itemTexture;
-    public Sprite[] sprites;
+    public Texture2D ItemTexture;
+    public Sprite[] Sprites;
 
     private int _itemId;
 
@@ -22,26 +22,26 @@ public class ItemSpawnerScript : MonoBehaviour {
         } set { }
     }
 
-    public int itemsToSpawn = 5;
-    public PickupAbleItemData[] items;
-    public GameObject itemPrefab;
+    public int ItemsToSpawn = 5;
+    public PickupAbleItemData[] Items;
+    public GameObject ItemPrefab;
 
-    private readonly string filePath = "ItemListData.json";
+    private readonly string _filePath = "ItemListData.json";
 
     void Awake() {
 
-        if (instance != null) {
+        if (Instance != null) {
             Debug.LogWarning("ItemSpawnerScript instance already exist!");
             return;
         } else {
-            instance = this;
+            Instance = this;
         }
     }
 
     // Use this for initialization
     void Start () {
 
-        sprites = Resources.LoadAll<Sprite>(itemTexture.name);
+        Sprites = Resources.LoadAll<Sprite>(ItemTexture.name);
 
         //CreateItems();
         LoadItems();
@@ -49,180 +49,180 @@ public class ItemSpawnerScript : MonoBehaviour {
 
     public void CreateItems() {
 
-        items = new PickupAbleItemData[10];
+        Items = new PickupAbleItemData[10];
 
-        items[0] = new PickupAbleItemData();
-        items[0].maxDurability = 100;
-        items[0].currentDurability = 100;
-        items[0].maxStack = 1;
-        items[0].currentStack = 1;
-        items[0].name = "Wizard's Hat";
-        items[0].itemType = AttrAndCharUtils.ItemType.Head;
-        items[0].itemImageName = sprites[19].name;
-        items[0].itemImage = sprites[19];
+        Items[0] = new PickupAbleItemData();
+        Items[0].MaxDurability = 100;
+        Items[0].CurrentDurability = 100;
+        Items[0].MaxStack = 1;
+        Items[0].CurrentStack = 1;
+        Items[0].Name = "Wizard's Hat";
+        Items[0].ItemType = AttrAndCharUtils.ItemType.Head;
+        Items[0].ItemImageName = Sprites[19].name;
+        Items[0].ItemImage = Sprites[19];
         //items[0].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Intelligence, 5);
         //items[0].attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Mana, 20);
-        items[0].attributes = new Buff[2];
-        items[0].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Intelligence, 5);
-        items[0].attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Mana, 20);
+        Items[0].Attributes = new Buff[2];
+        Items[0].Attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Intelligence, 5);
+        Items[0].Attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Mana, 20);
 
-        items[1] = new PickupAbleItemData();
-        items[1].maxDurability = 1;
-        items[1].currentDurability = 1;
-        items[1].maxStack = 5;
-        items[1].currentStack = 1;
-        items[1].name = "Viper Eye";
-        items[1].itemType = AttrAndCharUtils.ItemType.Misc;
-        items[1].itemImageName = sprites[52].name;
-        items[1].itemImage = sprites[52];
+        Items[1] = new PickupAbleItemData();
+        Items[1].MaxDurability = 1;
+        Items[1].CurrentDurability = 1;
+        Items[1].MaxStack = 5;
+        Items[1].CurrentStack = 1;
+        Items[1].Name = "Viper Eye";
+        Items[1].ItemType = AttrAndCharUtils.ItemType.Misc;
+        Items[1].ItemImageName = Sprites[52].name;
+        Items[1].ItemImage = Sprites[52];
 
-        items[2] = new PickupAbleItemData();
-        items[2].maxDurability = 1;
-        items[2].currentDurability = 1;
-        items[2].maxStack = 2;
-        items[2].currentStack = 1;
-        items[2].name = "Beer";
-        items[2].itemType = AttrAndCharUtils.ItemType.Consumable;
-        items[2].itemImageName = sprites[5].name;
-        items[2].itemImage = sprites[5];
+        Items[2] = new PickupAbleItemData();
+        Items[2].MaxDurability = 1;
+        Items[2].CurrentDurability = 1;
+        Items[2].MaxStack = 2;
+        Items[2].CurrentStack = 1;
+        Items[2].Name = "Beer";
+        Items[2].ItemType = AttrAndCharUtils.ItemType.Consumable;
+        Items[2].ItemImageName = Sprites[5].name;
+        Items[2].ItemImage = Sprites[5];
         //items[2].attributes = new Attribute[2];
         //items[2].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Intelligence, -10, 60);
         //items[2].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 15, 60);
-        items[2].attributes = new Buff[2];
-        items[2].attributes[0] = new Buff(AttrAndCharUtils.BuffType.HoldBonus, AttrAndCharUtils.AttributeType.Intelligence, -10, 60);
-        items[2].attributes[0] = new Buff(AttrAndCharUtils.BuffType.HoldBonus, AttrAndCharUtils.AttributeType.Strength, 15, 60);
+        Items[2].Attributes = new Buff[2];
+        Items[2].Attributes[0] = new Buff(AttrAndCharUtils.BuffType.HoldBonus, AttrAndCharUtils.AttributeType.Intelligence, -10, 60);
+        Items[2].Attributes[0] = new Buff(AttrAndCharUtils.BuffType.HoldBonus, AttrAndCharUtils.AttributeType.Strength, 15, 60);
 
 
-        items[3] = new PickupAbleItemData();
-        items[3].maxDurability = 1;
-        items[3].currentDurability = 1;
-        items[3].maxStack = int.MaxValue;
-        items[3].currentStack = 100;
-        items[3].name = "Gold";
-        items[3].itemType = AttrAndCharUtils.ItemType.Misc;
-        items[3].itemImageName = sprites[17].name;
-        items[3].itemImage = sprites[17];
+        Items[3] = new PickupAbleItemData();
+        Items[3].MaxDurability = 1;
+        Items[3].CurrentDurability = 1;
+        Items[3].MaxStack = int.MaxValue;
+        Items[3].CurrentStack = 100;
+        Items[3].Name = "Gold";
+        Items[3].ItemType = AttrAndCharUtils.ItemType.Misc;
+        Items[3].ItemImageName = Sprites[17].name;
+        Items[3].ItemImage = Sprites[17];
 
-        items[4] = new PickupAbleItemData();
-        items[4].maxDurability = 60;
-        items[4].currentDurability = 60;
-        items[4].maxStack = 1;
-        items[4].currentStack = 1;
-        items[4].name = "Black Leather Boots";
-        items[4].itemType = AttrAndCharUtils.ItemType.Boots;
-        items[4].itemImageName = sprites[43].name;
-        items[4].itemImage = sprites[43];
+        Items[4] = new PickupAbleItemData();
+        Items[4].MaxDurability = 60;
+        Items[4].CurrentDurability = 60;
+        Items[4].MaxStack = 1;
+        Items[4].CurrentStack = 1;
+        Items[4].Name = "Black Leather Boots";
+        Items[4].ItemType = AttrAndCharUtils.ItemType.Boots;
+        Items[4].ItemImageName = Sprites[43].name;
+        Items[4].ItemImage = Sprites[43];
         //items[4].attributes = new Attribute[1];
         //items[4].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Agility, 20);
-        items[4].attributes = new Buff[1];
-        items[4].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Agility, 20);
+        Items[4].Attributes = new Buff[1];
+        Items[4].Attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Agility, 20);
 
-        items[5] = new PickupAbleItemData();
-        items[5].maxDurability = 140;
-        items[5].currentDurability = 140;
-        items[5].maxStack = 1;
-        items[5].currentStack = 1;
-        items[5].name = "Fire Sword";
-        items[5].itemType = AttrAndCharUtils.ItemType.Weapon;
-        items[5].itemImageName = sprites[47].name;
-        items[5].itemImage = sprites[47];
+        Items[5] = new PickupAbleItemData();
+        Items[5].MaxDurability = 140;
+        Items[5].CurrentDurability = 140;
+        Items[5].MaxStack = 1;
+        Items[5].CurrentStack = 1;
+        Items[5].Name = "Fire Sword";
+        Items[5].ItemType = AttrAndCharUtils.ItemType.Weapon;
+        Items[5].ItemImageName = Sprites[47].name;
+        Items[5].ItemImage = Sprites[47];
 
-        items[6] = new PickupAbleItemData();
-        items[6].maxDurability = 1;
-        items[6].currentDurability = 1;
-        items[6].maxStack = 10;
-        items[6].currentStack = 1;
-        items[6].name = "Mana Potion";
-        items[6].itemType = AttrAndCharUtils.ItemType.Consumable;
-        items[6].itemImageName = sprites[26].name;
-        items[6].itemImage = sprites[26];
+        Items[6] = new PickupAbleItemData();
+        Items[6].MaxDurability = 1;
+        Items[6].CurrentDurability = 1;
+        Items[6].MaxStack = 10;
+        Items[6].CurrentStack = 1;
+        Items[6].Name = "Mana Potion";
+        Items[6].ItemType = AttrAndCharUtils.ItemType.Consumable;
+        Items[6].ItemImageName = Sprites[26].name;
+        Items[6].ItemImage = Sprites[26];
         //items[6].attributes = new Attribute[1];
         //items[6].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Mana, 0.1f);
-        items[6].attributes = new Buff[1];
-        items[6].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Mana, 0.1f);
+        Items[6].Attributes = new Buff[1];
+        Items[6].Attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Mana, 0.1f);
 
-        items[7] = new PickupAbleItemData();
-        items[7].maxDurability = 1;
-        items[7].currentDurability = 1;
-        items[7].maxStack = 10;
-        items[7].currentStack = 1;
-        items[7].name = "Health Potion";
-        items[7].itemType = AttrAndCharUtils.ItemType.Consumable;
-        items[7].itemImageName = sprites[4].name;
-        items[7].itemImage = sprites[4];
+        Items[7] = new PickupAbleItemData();
+        Items[7].MaxDurability = 1;
+        Items[7].CurrentDurability = 1;
+        Items[7].MaxStack = 10;
+        Items[7].CurrentStack = 1;
+        Items[7].Name = "Health Potion";
+        Items[7].ItemType = AttrAndCharUtils.ItemType.Consumable;
+        Items[7].ItemImageName = Sprites[4].name;
+        Items[7].ItemImage = Sprites[4];
         //items[7].attributes = new Attribute[1];
         //items[7].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 0.1f);
-        items[7].attributes = new Buff[1];
-        items[7].attributes[0] = new Buff(AttrAndCharUtils.BuffType.Change, AttrAndCharUtils.AttributeType.Health, 18, 6);
+        Items[7].Attributes = new Buff[1];
+        Items[7].Attributes[0] = new Buff(AttrAndCharUtils.BuffType.Change, AttrAndCharUtils.AttributeType.Health, 18, 6);
 
-        items[8] = new PickupAbleItemData();
-        items[8].maxDurability = 200;
-        items[8].currentDurability = 180;
-        items[8].maxStack = 1;
-        items[8].currentStack = 1;
-        items[8].name = "Catarina Armor";
-        items[8].itemType = AttrAndCharUtils.ItemType.Armor;
-        items[8].itemImageName = sprites[27].name;
-        items[8].itemImage = sprites[27];
+        Items[8] = new PickupAbleItemData();
+        Items[8].MaxDurability = 200;
+        Items[8].CurrentDurability = 180;
+        Items[8].MaxStack = 1;
+        Items[8].CurrentStack = 1;
+        Items[8].Name = "Catarina Armor";
+        Items[8].ItemType = AttrAndCharUtils.ItemType.Armor;
+        Items[8].ItemImageName = Sprites[27].name;
+        Items[8].ItemImage = Sprites[27];
         //items[8].attributes = new Attribute[2];
         //items[8].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Health, 50);
         //items[8].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 20);
-        items[8].attributes = new Buff[2];
-        items[8].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Health, 50);
-        items[8].attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Strength, 20);
+        Items[8].Attributes = new Buff[2];
+        Items[8].Attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Health, 50);
+        Items[8].Attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Strength, 20);
 
-        items[9] = new PickupAbleItemData();
-        items[9].maxDurability = 150;
-        items[9].currentDurability = 150;
-        items[9].maxStack = 1;
-        items[9].currentStack = 1;
-        items[9].name = "Catarina Helm";
-        items[9].itemType = AttrAndCharUtils.ItemType.Head;
-        items[9].itemImageName = sprites[35].name;
-        items[9].itemImage = sprites[35];
+        Items[9] = new PickupAbleItemData();
+        Items[9].MaxDurability = 150;
+        Items[9].CurrentDurability = 150;
+        Items[9].MaxStack = 1;
+        Items[9].CurrentStack = 1;
+        Items[9].Name = "Catarina Helm";
+        Items[9].ItemType = AttrAndCharUtils.ItemType.Head;
+        Items[9].ItemImageName = Sprites[35].name;
+        Items[9].ItemImage = Sprites[35];
         //items[9].attributes = new Attribute[2];
         //items[9].attributes[0] = new Attribute(AttrAndCharUtils.AttributeType.Dexterity, 10);
         //items[9].attributes[1] = new Attribute(AttrAndCharUtils.AttributeType.Strength, 10);
-        items[9].attributes = new Buff[2];
-        items[9].attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Dexterity, 10);
-        items[9].attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Strength, 12);
+        Items[9].Attributes = new Buff[2];
+        Items[9].Attributes[0] = new Buff(AttrAndCharUtils.AttributeType.Dexterity, 10);
+        Items[9].Attributes[1] = new Buff(AttrAndCharUtils.AttributeType.Strength, 12);
 
-        string json = JsonHelper.ToJson(items, true);
-        File.WriteAllText(filePath, json);
+        string json = JsonHelper.ToJson(Items, true);
+        File.WriteAllText(_filePath, json);
         //Debug.Log(json);
     }
 
     public void LoadItems() {
 
-        if (File.Exists(filePath)) {
-            string dataAsJson = File.ReadAllText(filePath);
-            items = JsonHelper.FromJson<PickupAbleItemData>(dataAsJson);
+        if (File.Exists(_filePath)) {
+            string dataAsJson = File.ReadAllText(_filePath);
+            Items = JsonHelper.FromJson<PickupAbleItemData>(dataAsJson);
 
-            for (int i = 0; i < items.Length; i++) {
-                items[i].itemImage = sprites[int.Parse(items[i].itemImageName.Substring(12))];
+            for (int i = 0; i < Items.Length; i++) {
+                Items[i].ItemImage = Sprites[int.Parse(Items[i].ItemImageName.Substring(12))];
             }
         }
     }
 
     public void SpawnItems() {
 
-        for (int i = 0; i < itemsToSpawn; i++) {
+        for (int i = 0; i < ItemsToSpawn; i++) {
             Vector3 position = Random.insideUnitCircle * 2;
-            int rndIndex = Random.Range(0, items.Length);
+            int rndIndex = Random.Range(0, Items.Length);
             
-            Spawn(items[rndIndex], position);            
+            Spawn(Items[rndIndex], position);            
         }
     }
 
     public void Spawn(PickupAbleItemData itemData, Vector3? position = null) {
 
-        GameObject newItem = Instantiate(itemPrefab);
-        newItem.transform.position = (position == null) ? GameMasterScript.instance.player.transform.position : (Vector3)position;
+        GameObject newItem = Instantiate(ItemPrefab);
+        newItem.transform.position = (position == null) ? GameMasterScript.Instance.Player.transform.position : (Vector3)position;
 
-        if (itemData.itemId == 0) {
+        if (itemData.ItemId == 0) {
             newItem.GetComponent<DroppedItem>().FillItemData(itemData, newItemId);
         } else {
-            newItem.GetComponent<DroppedItem>().FillItemData(itemData, itemData.itemId);
+            newItem.GetComponent<DroppedItem>().FillItemData(itemData, itemData.ItemId);
         }
     }
 

@@ -6,42 +6,42 @@ using UnityEngine.UI;
 
 public class ItemCell : MonoBehaviour {
 
-    public Text stackStatus;
-    public Image cellImage;
-    public Image backGroundImage;
+    public Text StackStatus;
+    public Image CellImage;
+    public Image BackGroundImage;
 
-    public PickupAbleItemData cellItemData;
+    public PickupAbleItemData CellItemData;
 
 	// Use this for initialization
 	void Awake () {
 
-        cellImage = transform.GetChild(0).GetComponent<Image>();
-        stackStatus = transform.GetChild(1).GetComponent<Text>();
+        CellImage = transform.GetChild(0).GetComponent<Image>();
+        StackStatus = transform.GetChild(1).GetComponent<Text>();
     }
 
     public void UpdateCell(PickupAbleItemData itemData) {
 
-        this.cellItemData = itemData;
+        this.CellItemData = itemData;
 
-        stackStatus.text = UpdateStackInfo();
-        cellImage.sprite = this.cellItemData.itemImage;
-        cellImage.color = Color.white;        
+        StackStatus.text = _updateStackInfo();
+        CellImage.sprite = this.CellItemData.ItemImage;
+        CellImage.color = Color.white;        
     }
 
-    private string UpdateStackInfo() {
+    private string _updateStackInfo() {
 
         string stackText = "";
-        if (cellItemData.maxStack == int.MaxValue) {
-            stackText = cellItemData.currentStack.ToString();
-        } else if (cellItemData.maxStack > 1) {
-            stackText = cellItemData.currentStack.ToString() + "/" + cellItemData.maxStack.ToString();
-            backGroundImage.color = new Color(
+        if (CellItemData.MaxStack == int.MaxValue) {
+            stackText = CellItemData.CurrentStack.ToString();
+        } else if (CellItemData.MaxStack > 1) {
+            stackText = CellItemData.CurrentStack.ToString() + "/" + CellItemData.MaxStack.ToString();
+            BackGroundImage.color = new Color(
                 1f,
-                1f - (cellItemData.currentStack / (float)cellItemData.maxStack),
-                1f - (cellItemData.currentStack / (float)cellItemData.maxStack),
+                1f - (CellItemData.CurrentStack / (float)CellItemData.MaxStack),
+                1f - (CellItemData.CurrentStack / (float)CellItemData.MaxStack),
                 0.31f);
         } else {
-            backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
+            BackGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
         }
 
         return stackText;
@@ -49,19 +49,19 @@ public class ItemCell : MonoBehaviour {
 
     public void SetEmptyCell() {
 
-        cellItemData = null;
+        CellItemData = null;
 
-        stackStatus.text = "";
-        cellImage.sprite = null;
-        cellImage.color = new Color(1f, 1f, 1f, 0f);
-        backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
+        StackStatus.text = "";
+        CellImage.sprite = null;
+        CellImage.color = new Color(1f, 1f, 1f, 0f);
+        BackGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
     }
 
     public bool IsEmpty() {
 
-        if (cellItemData == null) {
+        if (CellItemData == null) {
             return true;
-        } else if (cellItemData.itemId == 0) {
+        } else if (CellItemData.ItemId == 0) {
             return true;
         } else {
             return false;
