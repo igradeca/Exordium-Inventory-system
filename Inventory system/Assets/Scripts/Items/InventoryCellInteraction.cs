@@ -38,6 +38,9 @@ public class InventoryCellInteraction : ItemCell, IPointerClickHandler, IPointer
         } else if (eventData.button == PointerEventData.InputButton.Middle) {
             if (cellItemData.itemType == AttrAndCharUtils.ItemType.Consumable) {
                 // consume item
+                Attributes.instance.AddNewBuffs(cellItemData.attributes);
+                Inventory.instance.RemoveAndUpdateGrid(cellItemData);
+                Debug.Log("Item consumed");
             }
         } else if (eventData.button == PointerEventData.InputButton.Right) {
             if (!this.IsEmpty() && (int)cellItemData.itemType < 4) {

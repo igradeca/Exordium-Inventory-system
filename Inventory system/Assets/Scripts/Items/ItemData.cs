@@ -12,5 +12,5 @@ public class ItemData {
     public Sprite itemImage;
     public Sprite backgroundImage;
 
-    public Attribute[] attributes;
+    public Buff[] attributes;
 }

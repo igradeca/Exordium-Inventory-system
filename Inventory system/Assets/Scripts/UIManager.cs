@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour {
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.C)) {
-            AttributesScript.instance.ShowPanel();
+            Attributes.instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour {
 
     private bool AllPanelsAreClosed() {
 
-        if (!AttributesScript.instance.attributesPanel.activeSelf && 
+        if (!Attributes.instance.attributesPanel.activeSelf && 
             !Equipment.instance.equipmentPanel.activeSelf && 
             !Inventory.instance.inventoryPanel.activeSelf) {
             return true;
@@ -103,7 +103,7 @@ public class UIManager : MonoBehaviour {
         for (int i = 0; i < attributes.Length; i++) {
 
             attributesDisplay += "\n " + attributes[i].attribute.ToString() + " ";
-
+            /*
             if (attributes[i].value != 0) {
                 attributesDisplay += (attributes[i].value > 0) ? "+" : "";
                 attributesDisplay +=  attributes[i].value.ToString();
@@ -115,6 +115,7 @@ public class UIManager : MonoBehaviour {
             if (attributes[i].duration > 0) {
                 attributesDisplay += " for " + attributes[i].duration.ToString() + " sec";
             }
+            */
         }
 
         return attributesDisplay;

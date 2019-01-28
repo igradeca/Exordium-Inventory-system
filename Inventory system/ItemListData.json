@@ -13,14 +13,16 @@
             "attributes": [
                 {
                     "attribute": 3,
-                    "percentage": 1.0,
-                    "value": 5,
+                    "value": 5.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 },
                 {
                     "attribute": 5,
-                    "percentage": 1.0,
-                    "value": 20,
+                    "value": 20.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 }
             ],
@@ -59,16 +61,18 @@
             },
             "attributes": [
                 {
-                    "attribute": 3,
-                    "percentage": 1.0,
-                    "value": -10,
+                    "attribute": 0,
+                    "value": 15.0,
+                    "effect": 1,
+                    "startOffset": 0,
                     "duration": 60
                 },
                 {
                     "attribute": 0,
-                    "percentage": 1.0,
-                    "value": 15,
-                    "duration": 60
+                    "value": 0.0,
+                    "effect": 0,
+                    "startOffset": 0,
+                    "duration": 0
                 }
             ],
             "itemId": 0,
@@ -107,8 +111,9 @@
             "attributes": [
                 {
                     "attribute": 2,
-                    "percentage": 1.0,
-                    "value": 20,
+                    "value": 20.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 }
             ],
@@ -148,8 +153,9 @@
             "attributes": [
                 {
                     "attribute": 5,
-                    "percentage": 0.10000000149011612,
-                    "value": 0,
+                    "value": 0.10000000149011612,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 }
             ],
@@ -172,9 +178,10 @@
             "attributes": [
                 {
                     "attribute": 4,
-                    "percentage": 0.10000000149011612,
-                    "value": 0,
-                    "duration": 0
+                    "value": 18.0,
+                    "effect": 3,
+                    "startOffset": 0,
+                    "duration": 6
                 }
             ],
             "itemId": 0,
@@ -196,14 +203,16 @@
             "attributes": [
                 {
                     "attribute": 4,
-                    "percentage": 1.0,
-                    "value": 50,
+                    "value": 50.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 },
                 {
                     "attribute": 0,
-                    "percentage": 1.0,
-                    "value": 20,
+                    "value": 20.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 }
             ],
@@ -226,14 +235,16 @@
             "attributes": [
                 {
                     "attribute": 1,
-                    "percentage": 1.0,
-                    "value": 10,
+                    "value": 10.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 },
                 {
                     "attribute": 0,
-                    "percentage": 1.0,
-                    "value": 10,
+                    "value": 12.0,
+                    "effect": 3,
+                    "startOffset": 0,
                     "duration": 0
                 }
             ],

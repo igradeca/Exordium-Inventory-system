@@ -6,6 +6,9 @@ public class GameMasterScript : MonoBehaviour {
 
     public static GameMasterScript instance;
 
+    public ItemData test1;
+    public PickupAbleItemData test2;
+
     public GameObject player;
 
     void Awake() {

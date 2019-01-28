@@ -70,9 +70,6 @@ public class Equipment : MonoBehaviour {
         }
     }
 
-    //
-    // This function needs to be changed. It is too chaotic right now.
-    //
     public void UpdateEquipmentGrid() {
 
         if (equipmentPanel.activeSelf == false) {

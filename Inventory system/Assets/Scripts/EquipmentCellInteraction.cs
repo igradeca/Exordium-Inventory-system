@@ -24,18 +24,6 @@ public class EquipmentCellInteraction : ItemCell, IPointerClickHandler, IPointer
         }
     }
 
-    private bool ItemTypeIsEquipable(AttrAndCharUtils.ItemType itemType) {
-
-        if (itemType == AttrAndCharUtils.ItemType.Head ||
-            itemType == AttrAndCharUtils.ItemType.Armor ||
-            itemType == AttrAndCharUtils.ItemType.Boots ||
-            itemType == AttrAndCharUtils.ItemType.Weapon) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     private void OnLeftMouseClick(PointerEventData eventData) {
 
         if (eventData.button == PointerEventData.InputButton.Left && UIManager.instance.leftControlKeyPressed) {
