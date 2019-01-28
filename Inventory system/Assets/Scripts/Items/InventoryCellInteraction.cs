@@ -40,8 +40,8 @@ public class InventoryCellInteraction : ItemCell, IPointerClickHandler, IPointer
                 // consume item
             }
         } else if (eventData.button == PointerEventData.InputButton.Right) {
-            if (!this.IsEmpty()) {
-                if ((int)cellItemData.itemType < 4 && Equipment.instance.IsSlotEmpty(cellItemData.itemType)) {
+            if (!this.IsEmpty() && (int)cellItemData.itemType < 4) {
+                if (Equipment.instance.IsSlotEmpty(cellItemData.itemType)) {
                     Equipment.instance.AddAndUpdateGrid(cellItemData);
                     Inventory.instance.RemoveAndUpdateGrid(cellItemData);
                 } else {
