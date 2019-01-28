@@ -27,7 +27,7 @@ public class DroppedItem : ItemInteraction {
 
     private void PickUp() {
 
-        Inventory.instance.Add(itemData, false);        
+        Inventory.instance.Add(itemData, false);
         Destroy(gameObject);
     }
 

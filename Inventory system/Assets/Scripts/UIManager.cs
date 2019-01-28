@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            EquipmentScript.instance.ShowPanel();
+            Equipment.instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.I)) {
@@ -60,7 +60,7 @@ public class UIManager : MonoBehaviour {
 
         if (AllPanelsAreClosed()) {
             if (cursorItemInTheAir.activeSelf) {
-                MouseCursor.instance.RemoveItemDataFromCursor();
+                CursorItemHolder.instance.EmptyItemData();
             }            
         }
     }
@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour {
     private bool AllPanelsAreClosed() {
 
         if (!AttributesScript.instance.attributesPanel.activeSelf && 
-            !EquipmentScript.instance.equipmentPanel.activeSelf && 
+            !Equipment.instance.equipmentPanel.activeSelf && 
             !Inventory.instance.inventoryPanel.activeSelf) {
             return true;
         } else {
@@ -92,6 +92,10 @@ public class UIManager : MonoBehaviour {
     private string AddAttributesStringToTooltip(Attribute[] attributes) {
 
         string attributesDisplay = "";
+
+        if (attributes == null) {
+            return attributesDisplay;
+        }
 
         for (int i = 0; i < attributes.Length; i++) {
 
@@ -137,21 +141,7 @@ public class UIManager : MonoBehaviour {
     public void HideSplitPanel() {
 
         splitPanel.SetActive(false);
-    }
-
-    public void ActivateCursorItemInTheAir() {
-
-        if (!cursorItemInTheAir.activeSelf) {
-            cursorItemInTheAir.SetActive(true);
-        }
-    }
-
-    public void DeactivateCursorItemInTheAir() {
-
-        if (cursorItemInTheAir.activeSelf) {
-            cursorItemInTheAir.SetActive(false);
-        }
-    }
+    }   
 
 
 }

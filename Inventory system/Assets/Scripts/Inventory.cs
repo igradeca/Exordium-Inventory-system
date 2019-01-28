@@ -33,14 +33,6 @@ public class Inventory : MonoBehaviour {
         inventoryList = new List<PickupAbleItemData>();
     }
 
-    public void DropItem(PickupAbleItemData item) {
-
-        ItemSpawnerScript.instance.Spawn(GameMasterScript.instance.player.transform.position, item);
-        Remove(item.itemId);
-        UpdateInventoryGrid();
-        UIManager.instance.DeactivateCursorItemInTheAir();
-    }
-
     public void Add(PickupAbleItemData itemData, bool newStack) {
 
         if (newStack == false && (itemData.maxStack >= 2 || itemData.maxStack == int.MaxValue)) {
@@ -71,10 +63,10 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    public void Remove(int inventoryId) {
+    public void Remove(int itemId) {
 
         for (int i = 0; i < inventoryList.Count; i++) {
-            if (inventoryList[i].itemId == inventoryId) {
+            if (inventoryList[i].itemId == itemId) {
                 inventoryList.RemoveAt(i);
             }
         }
@@ -112,6 +104,18 @@ public class Inventory : MonoBehaviour {
             DestroyEmptyCells(5);
         }
 
+    }
+
+    public void RemoveAndUpdateGrid(PickupAbleItemData item) {
+
+        Remove(item.itemId);
+        UpdateInventoryGrid();
+    }
+
+    public void AddAndUpdateGrid(PickupAbleItemData item, bool newStack) {
+
+        Add(item, newStack);
+        UpdateInventoryGrid();
     }
 
     private void InstantiateNewEmptyCells(int cellsNumber = 1) {

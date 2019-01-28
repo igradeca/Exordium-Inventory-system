@@ -178,7 +178,6 @@ public class ItemSpawnerScript : MonoBehaviour {
 
         if (File.Exists(filePath)) {
             string dataAsJson = File.ReadAllText(filePath);
-
             items = JsonHelper.FromJson<PickupAbleItemData>(dataAsJson);
 
             for (int i = 0; i < items.Length; i++) {
@@ -190,23 +189,23 @@ public class ItemSpawnerScript : MonoBehaviour {
     public void SpawnItems() {
 
         for (int i = 0; i < itemsToSpawn; i++) {
-            Vector2 position = Random.insideUnitCircle * 2;
+            Vector3 position = Random.insideUnitCircle * 2;
             int rndIndex = Random.Range(0, items.Length);
             
-            Spawn(position, items[rndIndex]);            
+            Spawn(items[rndIndex], position);            
         }
     }
 
-    public void Spawn(Vector2 position, PickupAbleItemData itemData) {
+    public void Spawn(PickupAbleItemData itemData, Vector3? position = null) {
 
         GameObject newItem = Instantiate(itemPrefab);
+        newItem.transform.position = (position == null) ? GameMasterScript.instance.player.transform.position : (Vector3)position;
+
         if (itemData.itemId == 0) {
             newItem.GetComponent<DroppedItem>().FillItemData(itemData, newItemId);
         } else {
             newItem.GetComponent<DroppedItem>().FillItemData(itemData, itemData.itemId);
         }
-        
-        newItem.transform.position = position;
     }
 
 

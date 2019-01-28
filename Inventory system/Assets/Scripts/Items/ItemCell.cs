@@ -10,28 +10,28 @@ public class ItemCell : MonoBehaviour {
     public Image cellImage;
     public Image backGroundImage;
 
-    public PickupAbleItemData itemData;
-    public int itemIndex;
+    public PickupAbleItemData cellItemData;
 
 	// Use this for initialization
 	void Awake () {
 
         cellImage = transform.GetChild(0).GetComponent<Image>();
         stackStatus = transform.GetChild(1).GetComponent<Text>();
+        //itemData = null;
     }
 
     public void UpdateCell(PickupAbleItemData itemData) {
 
-        this.itemData = itemData;
+        this.cellItemData = itemData;
 
         stackStatus.text = UpdateStackInfo();
-        cellImage.sprite = this.itemData.itemImage;
+        cellImage.sprite = this.cellItemData.itemImage;
         cellImage.color = Color.white;        
     }
 
     public void SetEmptyCell() {
 
-        itemData = null;
+        cellItemData = null;
 
         stackStatus.text = "";
         cellImage.sprite = null;
@@ -42,14 +42,14 @@ public class ItemCell : MonoBehaviour {
     private string UpdateStackInfo() {
 
         string stackText = "";
-        if (itemData.maxStack == int.MaxValue) {
-            stackText = itemData.currentStack.ToString();
-        } else if (itemData.maxStack > 1) {
-            stackText = itemData.currentStack.ToString() + "/" + itemData.maxStack.ToString();
+        if (cellItemData.maxStack == int.MaxValue) {
+            stackText = cellItemData.currentStack.ToString();
+        } else if (cellItemData.maxStack > 1) {
+            stackText = cellItemData.currentStack.ToString() + "/" + cellItemData.maxStack.ToString();
             backGroundImage.color = new Color(
                 1f,
-                1f - (itemData.currentStack / (float)itemData.maxStack),
-                1f - (itemData.currentStack / (float)itemData.maxStack),
+                1f - (cellItemData.currentStack / (float)cellItemData.maxStack),
+                1f - (cellItemData.currentStack / (float)cellItemData.maxStack),
                 0.31f);
         } else {
             backGroundImage.color = new Color(1f, 1f, 1f, 0.31f);
