@@ -51,8 +51,8 @@ public class InventoryCellInteraction : ItemCell, IPointerClickHandler, IPointer
                     Inventory.instance.Add(Equipment.instance.equipedItems[(int)cellItemData.itemType], true);
                     Equipment.instance.AddAndUpdateGrid(cellItemData);
                     Inventory.instance.RemoveAndUpdateGrid(cellItemData);
-                }                
-            }            
+                }
+            }
         }
     }
     

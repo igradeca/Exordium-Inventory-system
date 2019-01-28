@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1267777703383420
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,14 +53,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 224570129528516458}
-  - component: {fileID: 114873871702846202}
+  - component: {fileID: 114483353048612416}
   m_Layer: 5
   m_Name: CursorItemInTheAir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1476019476323474
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,7 +77,35 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
+--- !u!114 &114483353048612416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1267777703383420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6bd44e6704d9b4dafe912d5f32a2b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCanvas: {fileID: 0}
+  cursorImage: {fileID: 114616146126280192}
+  stackingBackground: {fileID: 1476019476323474}
+  stackingText: {fileID: 114939644441479216}
+  holdingItemData:
+    name: 
+    itemType: 0
+    itemImageName: 
+    itemImage: {fileID: 0}
+    backgroundImage: {fileID: 0}
+    attributes: []
+    itemId: 0
+    maxDurability: 100
+    currentDurability: 100
+    maxStack: 1
+    currentStack: 1
+  itemIsFromInventory: 0
 --- !u!114 &114537003227390284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,33 +160,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114873871702846202
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1267777703383420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a6bd44e6704d9b4dafe912d5f32a2b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCanvas: {fileID: 0}
-  cursorImage: {fileID: 114616146126280192}
-  stackingBackground: {fileID: 1476019476323474}
-  stackingText: {fileID: 114939644441479216}
-  holdingItemData:
-    name: 
-    itemType: 0
-    itemImageName: 
-    itemImage: {fileID: 0}
-    backgroundImage: {fileID: 0}
-    inventoryId: 0
-    maxDurability: 100
-    currentDurability: 100
-    maxStack: 1
-    currentStack: 1
-  inventoryIndex: 0
 --- !u!114 &114939644441479216
 MonoBehaviour:
   m_ObjectHideFlags: 1
