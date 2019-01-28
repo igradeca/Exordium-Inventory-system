@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            Equipment.instance.ShowPanel();
+            //Equipment.instance.ShowPanel();
         }
 
         if (Input.GetKeyDown(KeyCode.I)) {

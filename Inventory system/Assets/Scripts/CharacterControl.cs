@@ -10,7 +10,7 @@ public class CharacterControl : MonoBehaviour {
     public Animator animator;
     public Rigidbody2D rigidBody;
     public AttributesScript attributesScript;
-    public Equipment equipmentScript;
+    //public Equipment equipmentScript;
     public Inventory inventoryScript;
 
     // Use this for initialization
